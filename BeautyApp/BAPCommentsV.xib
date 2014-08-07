@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jhz-rn-aQS" customClass="BAPCommentsV">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="226"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="הערות" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qe-ev-iIp">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.14901961389999999" green="0.56862747670000002" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="wxh-d1-D2d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Iu1-mS-yP2">
+                    <rect key="frame" x="0.0" y="45" width="220" height="133"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-0U-hOk">
+                    <rect key="frame" x="166" y="186" width="34" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Eqo-Ne-Nd5"/>
+                        <constraint firstAttribute="width" constant="34" id="qvE-xT-TqI"/>
+                    </constraints>
+                    <state key="normal" title="חזור">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnReturnCommentsTapped:" destination="jhz-rn-aQS" eventType="touchUpInside" id="B9N-Uj-Hru"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMl-VZ-yEd">
+                    <rect key="frame" x="20" y="186" width="34" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="0eh-Yj-FXi"/>
+                        <constraint firstAttribute="width" constant="34" id="lff-6v-e8g"/>
+                    </constraints>
+                    <state key="normal" title="אישור">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSubmitCommentsTapped:" destination="jhz-rn-aQS" eventType="touchUpInside" id="gLp-PT-nk4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RMl-VZ-yEd" secondAttribute="bottom" constant="10" id="DUc-g1-6rb"/>
+                <constraint firstAttribute="trailing" secondItem="9qe-ev-iIp" secondAttribute="trailing" id="M2a-Fm-4Hh"/>
+                <constraint firstItem="RMl-VZ-yEd" firstAttribute="leading" secondItem="jhz-rn-aQS" secondAttribute="leading" constant="20" id="S7Q-fv-MMk"/>
+                <constraint firstItem="9qe-ev-iIp" firstAttribute="leading" secondItem="jhz-rn-aQS" secondAttribute="leading" id="VIs-CR-6qn"/>
+                <constraint firstAttribute="trailing" secondItem="KdK-0U-hOk" secondAttribute="trailing" constant="20" id="XYh-8P-uzF"/>
+                <constraint firstAttribute="bottom" secondItem="KdK-0U-hOk" secondAttribute="bottom" constant="10" id="uBv-Yt-JpH"/>
+                <constraint firstItem="9qe-ev-iIp" firstAttribute="top" secondItem="jhz-rn-aQS" secondAttribute="top" id="y5E-le-jNO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblTitleOfCommentsV" destination="9qe-ev-iIp" id="ZHR-GE-whU"/>
+                <outlet property="tvComments" destination="Iu1-mS-yP2" id="E1b-JY-eiy"/>
+            </connections>
+        </view>
+    </objects>
+</document>

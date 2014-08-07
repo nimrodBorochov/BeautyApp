@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oAm-Xu-c3x" customClass="BAPWhenSelectionV">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="146"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מתי" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYM-of-b3L">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.14901961389999999" green="0.56862747670000002" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="IIi-hk-FQc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" restorationIdentifier="selectionWhenView" translatesAutoresizingMaskIntoConstraints="NO" id="H5k-C3-cyX">
+                    <rect key="frame" x="0.0" y="45" width="220" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Bbl-qC-r0t">
+                            <rect key="frame" x="180" y="15" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="evz-NS-BhQ"/>
+                                <constraint firstAttribute="height" constant="20" id="h1b-aA-VoM"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="היום" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcH-Tb-UPI">
+                            <rect key="frame" x="134" y="11" width="38" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="TcH-Tb-UPI" firstAttribute="top" secondItem="H5k-C3-cyX" secondAttribute="top" constant="11" id="FvN-hd-sZt"/>
+                        <constraint firstAttribute="trailing" secondItem="Bbl-qC-r0t" secondAttribute="trailing" constant="20" id="LaP-Xz-Oh8"/>
+                        <constraint firstItem="Bbl-qC-r0t" firstAttribute="top" secondItem="H5k-C3-cyX" secondAttribute="top" constant="15" id="PkY-Wy-bq0"/>
+                        <constraint firstAttribute="height" constant="50" id="PoG-XB-dbM"/>
+                        <constraint firstAttribute="bottom" secondItem="TcH-Tb-UPI" secondAttribute="bottom" constant="12" id="ZKn-QU-btH"/>
+                        <constraint firstAttribute="bottom" secondItem="Bbl-qC-r0t" secondAttribute="bottom" constant="15" id="lfW-MJ-bjo"/>
+                        <constraint firstItem="Bbl-qC-r0t" firstAttribute="leading" secondItem="TcH-Tb-UPI" secondAttribute="trailing" constant="8" id="uPx-9K-ZKM"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBx-qG-iIe">
+                    <rect key="frame" x="0.0" y="96" width="220" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Nf0-OD-cJc">
+                            <rect key="frame" x="180" y="15" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="0C9-9l-xOO"/>
+                                <constraint firstAttribute="width" constant="20" id="sdk-1x-wR1"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="אחר" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-Qn-AEC">
+                            <rect key="frame" x="135" y="11" width="37" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Nf0-OD-cJc" secondAttribute="bottom" constant="15" id="2Hy-Lc-rvg"/>
+                        <constraint firstItem="WeM-Qn-AEC" firstAttribute="top" secondItem="vBx-qG-iIe" secondAttribute="top" constant="11" id="EwH-8N-zpd"/>
+                        <constraint firstItem="Nf0-OD-cJc" firstAttribute="top" secondItem="vBx-qG-iIe" secondAttribute="top" constant="15" id="MBE-tv-vG0"/>
+                        <constraint firstItem="Nf0-OD-cJc" firstAttribute="leading" secondItem="WeM-Qn-AEC" secondAttribute="trailing" constant="8" id="MRk-L0-1dH"/>
+                        <constraint firstAttribute="height" constant="50" id="kCZ-Cr-buq"/>
+                        <constraint firstAttribute="bottom" secondItem="WeM-Qn-AEC" secondAttribute="bottom" constant="12" id="qoa-j4-WjA"/>
+                        <constraint firstAttribute="trailing" secondItem="Nf0-OD-cJc" secondAttribute="trailing" constant="20" id="uwK-Wv-L3s"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="H5k-C3-cyX" firstAttribute="top" secondItem="KYM-of-b3L" secondAttribute="bottom" id="1Se-rl-Mps"/>
+                <constraint firstItem="KYM-of-b3L" firstAttribute="leading" secondItem="oAm-Xu-c3x" secondAttribute="leading" id="1oJ-RG-MGe"/>
+                <constraint firstAttribute="trailing" secondItem="KYM-of-b3L" secondAttribute="trailing" id="JrY-gK-pGH"/>
+                <constraint firstItem="H5k-C3-cyX" firstAttribute="leading" secondItem="oAm-Xu-c3x" secondAttribute="leading" id="lj4-Hv-xie"/>
+                <constraint firstItem="vBx-qG-iIe" firstAttribute="top" secondItem="H5k-C3-cyX" secondAttribute="bottom" constant="1" id="nsm-8f-xzB"/>
+                <constraint firstItem="vBx-qG-iIe" firstAttribute="leading" secondItem="oAm-Xu-c3x" secondAttribute="leading" id="v5l-74-lBP"/>
+                <constraint firstAttribute="trailing" secondItem="H5k-C3-cyX" secondAttribute="trailing" id="wmq-eT-SDh"/>
+                <constraint firstItem="KYM-of-b3L" firstAttribute="top" secondItem="oAm-Xu-c3x" secondAttribute="top" id="yUF-4z-xSw"/>
+                <constraint firstAttribute="trailing" secondItem="vBx-qG-iIe" secondAttribute="trailing" id="zhE-kj-ZHL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ivCheckBoxOtherDay" destination="Nf0-OD-cJc" id="uhy-G9-Qyu"/>
+                <outlet property="ivCheckBoxToday" destination="Bbl-qC-r0t" id="8F9-kl-axL"/>
+                <outlet property="vOtherDay" destination="vBx-qG-iIe" id="fnR-oW-Wf0"/>
+                <outlet property="vToday" destination="H5k-C3-cyX" id="xNS-rU-fGv"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkBox" width="20" height="20"/>
+    </resources>
+</document>

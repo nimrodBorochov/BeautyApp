@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ie9-Aa-WUE" customClass="BAPMenuV">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="143"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOy-a6-sss">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="9Jd-c8-9YI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="פרופיל אישי">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnPersonalInfoTapped:" destination="Ie9-Aa-WUE" eventType="touchUpInside" id="VI3-TO-YGx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5X-1J-QqB">
+                    <rect key="frame" x="0.0" y="36" width="220" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="mhe-kc-CKC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="היסטורית טיפולים">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnTreatmentHistoryTapped:" destination="Ie9-Aa-WUE" eventType="touchUpInside" id="y75-6B-tdQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3A-qE-TdA">
+                    <rect key="frame" x="0.0" y="72" width="220" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="5i5-6Y-096"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="הסבר">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnExplanationTapped:" destination="Ie9-Aa-WUE" eventType="touchUpInside" id="rjh-b5-0Bz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otS-Bl-Xdz">
+                    <rect key="frame" x="0.0" y="108" width="220" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="aym-ol-h8T"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="תקנון">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnRegulationsTapped:" destination="Ie9-Aa-WUE" eventType="touchUpInside" id="vC5-n0-c3g"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="S3A-qE-TdA" secondAttribute="trailing" id="3sj-RQ-HDf"/>
+                <constraint firstItem="S3A-qE-TdA" firstAttribute="leading" secondItem="Ie9-Aa-WUE" secondAttribute="leading" id="5cE-OS-ePk"/>
+                <constraint firstAttribute="trailing" secondItem="cOy-a6-sss" secondAttribute="trailing" id="Qf7-lP-3TO"/>
+                <constraint firstAttribute="trailing" secondItem="M5X-1J-QqB" secondAttribute="trailing" id="ZPr-s9-ata"/>
+                <constraint firstItem="cOy-a6-sss" firstAttribute="top" secondItem="Ie9-Aa-WUE" secondAttribute="top" id="atz-9z-44C"/>
+                <constraint firstItem="otS-Bl-Xdz" firstAttribute="top" secondItem="S3A-qE-TdA" secondAttribute="bottom" constant="1" id="cPb-eQ-gXk"/>
+                <constraint firstItem="M5X-1J-QqB" firstAttribute="leading" secondItem="Ie9-Aa-WUE" secondAttribute="leading" id="fg0-oG-MBA"/>
+                <constraint firstAttribute="trailing" secondItem="otS-Bl-Xdz" secondAttribute="trailing" id="gGJ-Sp-st0"/>
+                <constraint firstItem="otS-Bl-Xdz" firstAttribute="leading" secondItem="Ie9-Aa-WUE" secondAttribute="leading" id="ikW-2b-drt"/>
+                <constraint firstItem="cOy-a6-sss" firstAttribute="leading" secondItem="Ie9-Aa-WUE" secondAttribute="leading" id="jJZ-OG-cca"/>
+                <constraint firstItem="S3A-qE-TdA" firstAttribute="top" secondItem="M5X-1J-QqB" secondAttribute="bottom" constant="1" id="qyM-ax-hsy"/>
+                <constraint firstItem="M5X-1J-QqB" firstAttribute="top" secondItem="cOy-a6-sss" secondAttribute="bottom" constant="1" id="yJm-oo-pc5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
