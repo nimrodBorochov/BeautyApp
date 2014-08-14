@@ -11,10 +11,10 @@
 @implementation BAPMapViewAnnotation
 
 
-- (id)initWithTitle:(NSString *)title AndCoordinate:(CLLocationCoordinate2D)coordinate
+- (id)initWithIdentity:(NSString *)identity AndCoordinate:(CLLocationCoordinate2D)coordinate
 {
     self = [super init];
-    _title = title;
+    _identity = identity;
     _coordinate = coordinate;
     
     return self;

@@ -11,9 +11,9 @@
 
 @interface BAPMapViewAnnotation : NSObject<MKAnnotation>
 
-@property (nonatomic, copy) NSString* title;
+@property (nonatomic, strong) NSString* identity;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
--(id) initWithTitle:(NSString *)title AndCoordinate:(CLLocationCoordinate2D)coordinate;
+-(id) initWithIdentity:(NSString *)identity AndCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end

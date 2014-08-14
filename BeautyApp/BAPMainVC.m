@@ -19,11 +19,16 @@
 #import "BAPRegulationsCV.h"
 #import "BAPWalkthroughVC.h"
 #import "BAPReservationVC.h"
+#import "BAPBeauticiansLocationFeed.h"
+#import "BAPGetBeauticiansLocationByPostCoordinates.h"
+#import "BAPBeauticianLocationModel.h"
 
 static NSInteger const SPACER_ITEM_WITH = 16;
 static NSInteger const HEIGHT_CONTAINER_MENU = 143;
+static long const MAPVIEW_DIV_FACTOR = 1.4375;
+static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
-@interface BAPMainVC ()<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, BACMenuDelegate>
+@interface BAPMainVC ()<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, BACMenuDelegate, CLLocationManagerDelegate>
 
 // Outlets properties
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -35,8 +40,17 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightOfTable;
 
 // Private properties
+
 @property (strong, nonatomic) NSMutableArray* mArrBusiness;
 @property (strong, nonatomic)NSMutableArray* mArrBusinessOnScreen;
+
+@property (strong, nonatomic) NSMutableArray* mArrbeauticiansLocation;
+@property (strong, nonatomic) NSMutableArray* mArrbeauticiansLocationOnScreen;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *startLocation;
+
+@property (strong, nonatomic) BAPBeauticiansLocationFeed* beauticiansLocationFeed;
+//@property (strong, nonatomic) BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
 
 @end
 
@@ -54,7 +68,10 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     [self showAnnotations];
     
     // Init mArrBusinessOnScreen
+    
     self.mArrBusinessOnScreen = [NSMutableArray new];
+    
+    self.mArrbeauticiansLocationOnScreen = [NSMutableArray new];
     [self updateMArrBusinessOnScrenn];
     
     [self uiMenu];
@@ -66,6 +83,7 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    /// Close appering subviews when exit from view
     [self closeMenuWithAnimation:NO];
     
     self.constraintHeightOfTable.constant = 0;
@@ -88,8 +106,6 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     
     // Create the custom bar botton item
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton] ;
-    
-    
     
     /// Custom Beautician Search Button
     // Set the frame with image
@@ -126,7 +142,7 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     
     negativeSpacer.width = SPACER_ITEM_WITH;
     
-    // Create Array wuth the button items
+    // Create Array with the button items
     NSArray *actionButtonItems = @[menuBarButtonItem, negativeSpacer, beauticianSearchBarButtonItem, negativeSpacer,tretmentOrderBarButtonItem];
     
     // Replace exist item button with custom arrButton items
@@ -135,19 +151,38 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 
 - (void)setupMap
 {
-    self.mapView.mapType = MKMapTypeStandard;
-    
-    self.mapView.showsUserLocation = YES;
-    
+    [self updateUserLocation];
+    // Make view as delegate
     self.mapView.delegate = self;
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 800, 800);
+    // Set the map type
+    self.mapView.mapType = MKMapTypeStandard;
     
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    // Make user location visible
+    self.mapView.showsUserLocation = YES;
     
-    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    // set traking mode for the user
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:NO];
+    
+    // Set region around user
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.startLocation.coordinate, MAPVIEW_HEIGHT_4I / 8, MAPVIEW_HEIGHT_4I / 8 / MAPVIEW_DIV_FACTOR);
+    
+    // set the map view with the region
+    [self.mapView setRegion:region animated:YES];
 }
 
+- (void)updateUserLocation
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    self.startLocation = self.locationManager.location;
+}
+#pragma mark CLLocationManagerDelegate
+
+
+/// Whit for WS ///
 - (void)showAnnotations
 {
     BAPStaticData* data = [BAPStaticData new];
@@ -155,6 +190,38 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     self.mArrBusiness = [data createStaticData];
     
     [self.mapView addAnnotations:[self createAnnotations]];
+//    CLLocation* currentLocation;
+//    
+//    if (self.mapView.userLocation.location.coordinate.latitude != 0)
+//    {
+//        currentLocation = self.mapView.userLocation.location;
+//    }
+//    else
+//    {
+//        currentLocation = self.startLocation;
+//    }
+//    
+//    ///TODO: Replace mokdata with web service
+//    BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
+//    
+//    self.beauticiansLocationFeed = [BAPBeauticiansLocationFeed new];
+//    getBeauticiansLocationByPostCoordinates = [BAPGetBeauticiansLocationByPostCoordinates new];
+//    
+//    [getBeauticiansLocationByPostCoordinates getBeauticiansLocationForLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude successBlock:^(id jsonObject) {
+//        
+//        self.beauticiansLocationFeed = jsonObject;
+//        
+//        NSLog(@"num of object: %lu", (unsigned long)self.beauticiansLocationFeed.arrBeauticiansLocation.count);
+//        
+//        [self.mapView addAnnotations:[self createAnnotations]];
+//    
+//    } failerBlock:^(NSError *error) {
+//        
+//        NSLog(@"Error getjson:%@", error);
+//        
+//    }];
+//    
+//    
 }
 
 - (void)updateMArrBusinessOnScrenn
@@ -173,10 +240,25 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
             [self.mArrBusinessOnScreen addObject:business];
         }
     }
+//    [self.mArrbeauticiansLocationOnScreen removeAllObjects];
+//    
+//    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
+//    {
+//        //Create coordinates from the latitude and longitude values
+//        CLLocationCoordinate2D coord;
+//        coord.latitude = beauticianLocationModel.numBeauticianLocationLatitude;
+//        coord.longitude = beauticianLocationModel.numBeauticianLocationLongitude;
+//        
+//        if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
+//        {
+//            [self.mArrbeauticiansLocationOnScreen addObject:beauticianLocationModel];
+//        }
+//    }
 }
 
 - (void)uiMenu
 {
+    /// Make the menu but make his constraintHeight = 0 for Invisible
     BAPMenuV* menuV = [BAPMenuV new];
     
     menuV.translatesAutoresizingMaskIntoConstraints = NO;
@@ -203,6 +285,7 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 
 - (void)addGesture
 {
+    // Add tap gesture to dim view
     UITapGestureRecognizer* tapDimview = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dimViewTapped)];
     
     [self.dimView addGestureRecognizer:tapDimview];
@@ -267,10 +350,14 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     {
         [self closeMenuWithAnimation:YES];
     }
+    
+    // Collect all business on visible map view
     [self updateMArrBusinessOnScrenn];
     
+    // reload table data with that array
     [self.tableBusinessOnScreen reloadData];
     
+    // Show the table with animation
     [UIView animateWithDuration:1 animations:^{
         if (self.constraintHeightOfTable.constant == 0)
         {
@@ -285,7 +372,6 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     }];
 }
 
-
 #pragma mark - MapView delegate methods
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -294,13 +380,19 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationIdentifier];
     
     if (!pinView) {
-        
         MKPinAnnotationView* customPinView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:AnnotationIdentifier];
         
-        if (annotation == self.mapView.userLocation) customPinView.image = [UIImage imageNamed:@"userLocationIcon.png"];
-        //        else customPinView.image = [UIImage imageNamed:@"mySomeOtherImage.png"];
+        // Set images to annotation and user location
+        if (annotation == self.mapView.userLocation)
+        {
+            customPinView.image = [UIImage imageNamed:@"userLocationIcon.png"];
+        }
+        ///TODO?? which image
+        //else{ customPinView.image = [UIImage imageNamed:@"mySomeOtherImage.png"];
+        ///TODO chack with adak
         customPinView.animatesDrop = NO;
         customPinView.canShowCallout = NO;
+        
         return customPinView;
         
     } else {
@@ -327,8 +419,6 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     
     [self.navigationController pushViewController:beauticianVC animated:YES];
     
-    
-    
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -337,12 +427,18 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
     [self updateMArrBusinessOnScrenn];
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    self.mapView.showsUserLocation = YES;
+}
+
 /// DEMO DATA ///
 - (NSMutableArray *)createAnnotations
 {
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
     for (BAPBusiness* business in self.mArrBusiness)
+//    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
     {
         //Create coordinates from the latitude and longitude values
         CLLocationCoordinate2D coord;
@@ -350,6 +446,10 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
         coord.longitude = business.businessAdress.numBusinessLongitude;
         
         BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithTitle:business.strBusinessName AndCoordinate:coord];
+//        coord.latitude = beauticianLocationModel.numBeauticianLocationLatitude;
+//        coord.longitude = beauticianLocationModel.numBeauticianLocationLongitude;
+//        
+//        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.strBeauticianLocationID AndCoordinate:coord];
         
         [annotations addObject:annotation];
     }
@@ -361,6 +461,7 @@ static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    return self.mArrbeauticiansLocationOnScreen.count;
     return self.mArrBusinessOnScreen.count;
 }
 

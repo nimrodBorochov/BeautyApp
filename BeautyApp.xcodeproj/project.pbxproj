@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CA1696F0D0CF4F6DAE6BBA36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03EBD6E4C6C45F59F87F012 /* libPods.a */; };
+		F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */; };
+		F39BC1B5199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B4199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m */; };
+		F39BC1B9199A250B00C94C58 /* BAPBeauticiansLocationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B8199A250B00C94C58 /* BAPBeauticiansLocationFeed.m */; };
+		F39BC1BC199A254E00C94C58 /* BAPBeauticianLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1BB199A254E00C94C58 /* BAPBeauticianLocationModel.m */; };
 		F3AA053A198E28B200079699 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0539198E28B200079699 /* Foundation.framework */; };
 		F3AA053C198E28B200079699 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA053B198E28B200079699 /* CoreGraphics.framework */; };
 		F3AA053E198E28B200079699 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA053D198E28B200079699 /* UIKit.framework */; };
@@ -82,6 +86,14 @@
 /* Begin PBXFileReference section */
 		3029216296514C8B8814007C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A03EBD6E4C6C45F59F87F012 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F39BC1B0199A1E8700C94C58 /* BAPBaseServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBaseServerManager.h; path = Server/Base/BAPBaseServerManager.h; sourceTree = "<group>"; };
+		F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBaseServerManager.m; path = Server/Base/BAPBaseServerManager.m; sourceTree = "<group>"; };
+		F39BC1B3199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetBeauticiansLocationByPostCoordinates.h; path = Server/BAPGetBeauticiansLocationByPostCoordinates.h; sourceTree = "<group>"; };
+		F39BC1B4199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPGetBeauticiansLocationByPostCoordinates.m; path = Server/BAPGetBeauticiansLocationByPostCoordinates.m; sourceTree = "<group>"; };
+		F39BC1B7199A250B00C94C58 /* BAPBeauticiansLocationFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticiansLocationFeed.h; path = "Model/JSON Model/BeauticiansLocation/BAPBeauticiansLocationFeed.h"; sourceTree = "<group>"; };
+		F39BC1B8199A250B00C94C58 /* BAPBeauticiansLocationFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticiansLocationFeed.m; path = "Model/JSON Model/BeauticiansLocation/BAPBeauticiansLocationFeed.m"; sourceTree = "<group>"; };
+		F39BC1BA199A254E00C94C58 /* BAPBeauticianLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianLocationModel.h; path = "Model/JSON Model/BeauticiansLocation/BAPBeauticianLocationModel.h"; sourceTree = "<group>"; };
+		F39BC1BB199A254E00C94C58 /* BAPBeauticianLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianLocationModel.m; path = "Model/JSON Model/BeauticiansLocation/BAPBeauticianLocationModel.m"; sourceTree = "<group>"; };
 		F3AA0536198E28B200079699 /* BeautyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA0539198E28B200079699 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F3AA053B198E28B200079699 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,6 +221,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F39BC1AE199A1E1A00C94C58 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				F39BC1AF199A1E2F00C94C58 /* Base */,
+				F39BC1B3199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.h */,
+				F39BC1B4199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		F39BC1AF199A1E2F00C94C58 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F39BC1B0199A1E8700C94C58 /* BAPBaseServerManager.h */,
+				F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		F39BC1B6199A247E00C94C58 /* BeauticiansLocation */ = {
+			isa = PBXGroup;
+			children = (
+				F39BC1B7199A250B00C94C58 /* BAPBeauticiansLocationFeed.h */,
+				F39BC1B8199A250B00C94C58 /* BAPBeauticiansLocationFeed.m */,
+				F39BC1BA199A254E00C94C58 /* BAPBeauticianLocationModel.h */,
+				F39BC1BB199A254E00C94C58 /* BAPBeauticianLocationModel.m */,
+			);
+			name = BeauticiansLocation;
+			sourceTree = "<group>";
+		};
 		F3AA052D198E28B200079699 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +291,7 @@
 				F3AA056E198E453E00079699 /* Model */,
 				F3AA056D198E453700079699 /* View */,
 				F3AA056C198E452800079699 /* Controller */,
+				F39BC1AE199A1E1A00C94C58 /* Server */,
 				F3AA0540198E28B200079699 /* Supporting Files */,
 			);
 			path = BeautyApp;
@@ -293,12 +336,12 @@
 			isa = PBXGroup;
 			children = (
 				F3D83CED198E48E1007BAC70 /* Base */,
+				F3D83CF8198E4910007BAC70 /* BAPMainVC.h */,
+				F3D83CF9198E4910007BAC70 /* BAPMainVC.m */,
 				F3D83CF4198E4910007BAC70 /* BAPReservationVC.h */,
 				F3D83CF5198E4910007BAC70 /* BAPReservationVC.m */,
 				F3D83CF6198E4910007BAC70 /* BAPTreatmentVC.h */,
 				F3D83CF7198E4910007BAC70 /* BAPTreatmentVC.m */,
-				F3D83CF8198E4910007BAC70 /* BAPMainVC.h */,
-				F3D83CF9198E4910007BAC70 /* BAPMainVC.m */,
 				F3D83CFA198E4910007BAC70 /* BAPBeauticianVC.h */,
 				F3D83CFB198E4910007BAC70 /* BAPBeauticianVC.m */,
 				F3D83CFC198E4910007BAC70 /* BAPBeauticianSearchVC.h */,
@@ -353,6 +396,7 @@
 		F3AA056F198E456500079699 /* JSON Model */ = {
 			isa = PBXGroup;
 			children = (
+				F39BC1B6199A247E00C94C58 /* BeauticiansLocation */,
 				F3D83CA3198E4796007BAC70 /* LocaTtion Indicators */,
 				F3AA0570198E458300079699 /* Beautician */,
 			);
@@ -580,11 +624,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3D83D0C198E4910007BAC70 /* BAPMainVC.m in Sources */,
+				F39BC1B5199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m in Sources */,
 				F3D83CEB198E48A1007BAC70 /* BAPMenuV.m in Sources */,
 				F3D83D19198E4946007BAC70 /* BAPStaticData.m in Sources */,
 				F3D83CCD198E487F007BAC70 /* BAPTreatmentHistoryCell.m in Sources */,
 				F3D83CF2198E48F7007BAC70 /* BAPBaseReservationVC.m in Sources */,
 				F3D83CB8198E47F7007BAC70 /* BAPBusinessServices.m in Sources */,
+				F39BC1B9199A250B00C94C58 /* BAPBeauticiansLocationFeed.m in Sources */,
 				F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */,
 				F3D83CE5198E48A1007BAC70 /* BAPLocationSelectionV.m in Sources */,
 				F3D83CCA198E487F007BAC70 /* BAPBusinessOnMapCell.m in Sources */,
@@ -598,6 +644,7 @@
 				F3D83CCB198E487F007BAC70 /* BAPTreatmentCell.m in Sources */,
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F3D83CB7198E47F7007BAC70 /* BAPBusiness.m in Sources */,
+				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,
 				F3D83D0D198E4910007BAC70 /* BAPBeauticianVC.m in Sources */,
 				F3D83D12198E4910007BAC70 /* BAPRegulationsCV.m in Sources */,
 				F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */,
@@ -614,6 +661,7 @@
 				F3D83CB6198E47F7007BAC70 /* BAPRateView.m in Sources */,
 				F3D83D13198E4910007BAC70 /* BAPWalkthroughContentVC.m in Sources */,
 				F3D83CBB198E47F7007BAC70 /* BAPBusinessRating.m in Sources */,
+				F39BC1BC199A254E00C94C58 /* BAPBeauticianLocationModel.m in Sources */,
 				F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */,
 				F3AA0546198E28B200079699 /* main.m in Sources */,
 			);
