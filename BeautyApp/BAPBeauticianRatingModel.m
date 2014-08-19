@@ -15,8 +15,8 @@
 {
     return [[JSONKeyMapper alloc] initWithDictionary:
             @{
-              @"rate"   :   @"intRate",
-              @"raters" :   @"intRaters"
+              @"rateCalculated"   :   @"dblRate",
+              @"ratersCounter"    :   @"intRaters"
               }];
 }
 

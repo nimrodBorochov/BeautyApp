@@ -15,8 +15,8 @@
 {
     return [[JSONKeyMapper alloc] initWithDictionary:
             @{
-              @"street"         :   @"strBeauticianStreet",
-              @"type"       :   @"strBeauticianCity"
+              @"street"     :   @"strBeauticianStreet",
+              @"city"       :   @"strBeauticianCity"
               }];
 }
 

@@ -15,15 +15,20 @@
 {
     return [[JSONKeyMapper alloc] initWithDictionary:
             @{
-              @"id"             :   @"strBeauticianId",
-              @"photo"          :   @"strBeauticianImageURL",
-              @"name"           :   @"strBeauticianName",
-              @"address"        :   @"beauticianAdressModel",
-              @"rating"         :   @"beauticianRatingModel",
-              @"degrees"        :   @"arrBeauticianDegrees",
-              @"description"    :   @"strDescription",
-              @"treatments"     :   @"arrBeauticiantreaTreatments"
+              @"__type"            :   @"strType",
+              @"beauticianID"       :       @"intBeauticianId",
+              @"id"                :   @"strBeauticianUserId",
+              @"name"              :   @"strBeauticianName",
+              @"type"              :   @"strBeauticianType",
+              @"email"             :   @"strBeauticianEmail",
+              @"latitude"          :   @"dblBeauticianLatitude",
+              @"longitude"         :   @"dblBeauticianLongitude",
+              @"description"        :   @"strBeauticianDescription",
+              @"photo"             :   @"strBeauticianImageURL",
+              @"treatments"        :   @"beauticianTreatmentsModel",
+              @"degrees"           :   @"beauticianDegreesModel",
+              @"address"           :   @"beauticianAdressModel",
+              @"rating"            :   @"beauticianRatingModel"
               }];
 }
-
 @end

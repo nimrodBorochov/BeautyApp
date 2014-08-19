@@ -8,6 +8,9 @@
 
 #import "JSONModel.h"
 
+// Defined a protocol for ather classes to use as object
+@protocol BAPBeauticianAdressModel @end
+
 @interface BAPBeauticianAdressModel : JSONModel
 
 @property (strong, nonatomic) NSString* strBeauticianStreet;

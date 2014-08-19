@@ -179,81 +179,75 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     [self.locationManager startUpdatingLocation];
     self.startLocation = self.locationManager.location;
 }
-#pragma mark CLLocationManagerDelegate
 
-
-/// Whit for WS ///
 - (void)showAnnotations
 {
-    BAPStaticData* data = [BAPStaticData new];
+//    BAPStaticData* data = [BAPStaticData new];
+//    
+//    self.mArrBusiness = [data createStaticData];
+//    
+//    [self.mapView addAnnotations:[self createAnnotations]];
+    CLLocation* currentLocation;
     
-    self.mArrBusiness = [data createStaticData];
+    if (self.mapView.userLocation.location.coordinate.latitude != 0)
+    {
+        currentLocation = self.mapView.userLocation.location;
+    }
+    else
+    {
+        currentLocation = self.startLocation;
+    }
     
-    [self.mapView addAnnotations:[self createAnnotations]];
-//    CLLocation* currentLocation;
-//    
-//    if (self.mapView.userLocation.location.coordinate.latitude != 0)
-//    {
-//        currentLocation = self.mapView.userLocation.location;
-//    }
-//    else
-//    {
-//        currentLocation = self.startLocation;
-//    }
-//    
-//    ///TODO: Replace mokdata with web service
-//    BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
-//    
-//    self.beauticiansLocationFeed = [BAPBeauticiansLocationFeed new];
-//    getBeauticiansLocationByPostCoordinates = [BAPGetBeauticiansLocationByPostCoordinates new];
-//    
-//    [getBeauticiansLocationByPostCoordinates getBeauticiansLocationForLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude successBlock:^(id jsonObject) {
-//        
-//        self.beauticiansLocationFeed = jsonObject;
-//        
-//        NSLog(@"num of object: %lu", (unsigned long)self.beauticiansLocationFeed.arrBeauticiansLocation.count);
-//        
-//        [self.mapView addAnnotations:[self createAnnotations]];
-//    
-//    } failerBlock:^(NSError *error) {
-//        
-//        NSLog(@"Error getjson:%@", error);
-//        
-//    }];
-//    
-//    
+    BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
+    
+    self.beauticiansLocationFeed = [BAPBeauticiansLocationFeed new];
+    getBeauticiansLocationByPostCoordinates = [BAPGetBeauticiansLocationByPostCoordinates new];
+    
+    [getBeauticiansLocationByPostCoordinates getBeauticiansLocationForLatitude:(double)currentLocation.coordinate.latitude longitude:(double)currentLocation.coordinate.longitude successBlock:^(id jsonObject) {
+        
+        self.beauticiansLocationFeed = jsonObject;
+        
+        NSLog(@"num of object: %lu", (unsigned long)self.beauticiansLocationFeed.arrBeauticiansLocation.count);
+        
+        [self.mapView addAnnotations:[self createAnnotations]];
+    
+    } failerBlock:^(NSError *error) {
+        
+        NSLog(@"Error getjson:%@", error);
+        
+    }];
 }
 
 - (void)updateMArrBusinessOnScrenn
 {
-    [self.mArrBusinessOnScreen removeAllObjects];
-    
-    for (BAPBusiness* business in self.mArrBusiness)
-    {
-        //Create coordinates from the latitude and longitude values
-        CLLocationCoordinate2D coord;
-        coord.latitude = business.businessAdress.numBusinessLatitude;
-        coord.longitude = business.businessAdress.numBusinessLongitude;
-        
-        if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
-        {
-            [self.mArrBusinessOnScreen addObject:business];
-        }
-    }
-//    [self.mArrbeauticiansLocationOnScreen removeAllObjects];
+//    [self.mArrBusinessOnScreen removeAllObjects];
 //    
-//    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
+//    for (BAPBusiness* business in self.mArrBusiness)
 //    {
 //        //Create coordinates from the latitude and longitude values
 //        CLLocationCoordinate2D coord;
-//        coord.latitude = beauticianLocationModel.numBeauticianLocationLatitude;
-//        coord.longitude = beauticianLocationModel.numBeauticianLocationLongitude;
+//        coord.latitude = business.businessAdress.numBusinessLatitude;
+//        coord.longitude = business.businessAdress.numBusinessLongitude;
 //        
 //        if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
 //        {
-//            [self.mArrbeauticiansLocationOnScreen addObject:beauticianLocationModel];
+//            [self.mArrBusinessOnScreen addObject:business];
 //        }
 //    }
+    [self.mArrbeauticiansLocationOnScreen removeAllObjects];
+    
+    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
+    {
+        //Create coordinates from the latitude and longitude values
+        CLLocationCoordinate2D coord;
+        coord.latitude = beauticianLocationModel.dblBeauticianLocationLatitude;
+        coord.longitude = beauticianLocationModel.dblBeauticianLocationLongitude;
+        
+        if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
+        {
+            [self.mArrbeauticiansLocationOnScreen addObject:beauticianLocationModel];
+        }
+    }
 }
 
 - (void)uiMenu
@@ -437,19 +431,16 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 {
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
-    for (BAPBusiness* business in self.mArrBusiness)
-//    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
+
+    for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
     {
         //Create coordinates from the latitude and longitude values
         CLLocationCoordinate2D coord;
-        coord.latitude = business.businessAdress.numBusinessLatitude;
-        coord.longitude = business.businessAdress.numBusinessLongitude;
         
-        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithTitle:business.strBusinessName AndCoordinate:coord];
-//        coord.latitude = beauticianLocationModel.numBeauticianLocationLatitude;
-//        coord.longitude = beauticianLocationModel.numBeauticianLocationLongitude;
-//        
-//        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.strBeauticianLocationID AndCoordinate:coord];
+        coord.latitude = beauticianLocationModel.dblBeauticianLocationLatitude;
+        coord.longitude = beauticianLocationModel.dblBeauticianLocationLongitude;
+        
+        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.intBeauticianLocationID AndCoordinate:coord];
         
         [annotations addObject:annotation];
     }
@@ -461,12 +452,11 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.mArrbeauticiansLocationOnScreen.count;
-    return self.mArrBusinessOnScreen.count;
+    return self.mArrbeauticiansLocationOnScreen.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{///TODO
     BAPBusinessOnMapCell* businessOnMapCell = [tableView dequeueReusableCellWithIdentifier:@"businessOnMapCell"];
     
     if (!businessOnMapCell)
@@ -500,7 +490,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     BAPBeauticianVC* beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
     
     // Set view controller property
-    beauticianVC.business = self.mArrBusinessOnScreen[indexPath.row];
+    beauticianVC.business = self.mArrbeauticiansLocationOnScreen[indexPath.row];
     
     // Push to MSLEmployeeProfileVC
     [self.navigationController pushViewController:beauticianVC animated:YES];

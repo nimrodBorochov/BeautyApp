@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CA1696F0D0CF4F6DAE6BBA36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03EBD6E4C6C45F59F87F012 /* libPods.a */; };
+		F30D930D199C951E00C7095D /* BAPBeauticianTreatmentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */; };
+		F397B42219A0D364001EF20E /* BAPBeauticianDegreesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */; };
+		F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */; };
+		F3998BEA19A2190600FDFD8D /* BAPOrderTreatmenFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE919A2190600FDFD8D /* BAPOrderTreatmenFeed.m */; };
 		F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */; };
 		F39BC1B5199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B4199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m */; };
 		F39BC1B9199A250B00C94C58 /* BAPBeauticiansLocationFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B8199A250B00C94C58 /* BAPBeauticiansLocationFeed.m */; };
@@ -29,8 +33,6 @@
 		F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */; };
 		F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */; };
 		F3D83CA2198E4781007BAC70 /* BAPBeauticianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */; };
-		F3D83CA8198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CA5198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.m */; };
-		F3D83CA9198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CA7198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.m */; };
 		F3D83CB6198E47F7007BAC70 /* BAPRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CAA198E47F7007BAC70 /* BAPRateView.m */; };
 		F3D83CB7198E47F7007BAC70 /* BAPBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CAC198E47F7007BAC70 /* BAPBusiness.m */; };
 		F3D83CB8198E47F7007BAC70 /* BAPBusinessServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CAF198E47F7007BAC70 /* BAPBusinessServices.m */; };
@@ -71,6 +73,8 @@
 		F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */; };
 		F3D83D19198E4946007BAC70 /* BAPStaticData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D16198E4946007BAC70 /* BAPStaticData.m */; };
 		F3D83D1A198E4946007BAC70 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D18198E4946007BAC70 /* UIView+Layout.m */; };
+		F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E17119A1E32D00B8106F /* BAPBeauticianFeed.m */; };
+		F3F2E17519A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,14 @@
 /* Begin PBXFileReference section */
 		3029216296514C8B8814007C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A03EBD6E4C6C45F59F87F012 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30D930B199C951E00C7095D /* BAPBeauticianTreatmentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianTreatmentsModel.h; path = "Model/JSON Model/Beautician/BAPBeauticianTreatmentsModel.h"; sourceTree = "<group>"; };
+		F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianTreatmentsModel.m; path = "Model/JSON Model/Beautician/BAPBeauticianTreatmentsModel.m"; sourceTree = "<group>"; };
+		F397B42019A0D364001EF20E /* BAPBeauticianDegreesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianDegreesModel.h; path = "Model/JSON Model/Beautician/BAPBeauticianDegreesModel.h"; sourceTree = "<group>"; };
+		F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianDegreesModel.m; path = "Model/JSON Model/Beautician/BAPBeauticianDegreesModel.m"; sourceTree = "<group>"; };
+		F3998BE519A2162D00FDFD8D /* BAPOrderTreatmenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenModel.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.h"; sourceTree = "<group>"; };
+		F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPOrderTreatmenModel.m; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.m"; sourceTree = "<group>"; };
+		F3998BE819A2190600FDFD8D /* BAPOrderTreatmenFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenFeed.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenFeed.h"; sourceTree = "<group>"; };
+		F3998BE919A2190600FDFD8D /* BAPOrderTreatmenFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPOrderTreatmenFeed.m; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenFeed.m"; sourceTree = "<group>"; };
 		F39BC1B0199A1E8700C94C58 /* BAPBaseServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBaseServerManager.h; path = Server/Base/BAPBaseServerManager.h; sourceTree = "<group>"; };
 		F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBaseServerManager.m; path = Server/Base/BAPBaseServerManager.m; sourceTree = "<group>"; };
 		F39BC1B3199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetBeauticiansLocationByPostCoordinates.h; path = Server/BAPGetBeauticiansLocationByPostCoordinates.h; sourceTree = "<group>"; };
@@ -118,10 +130,6 @@
 		F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPBeauticianRatingModel.m; sourceTree = "<group>"; };
 		F3D83C9E198E4781007BAC70 /* BAPBeauticianModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPBeauticianModel.h; sourceTree = "<group>"; };
 		F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPBeauticianModel.m; sourceTree = "<group>"; };
-		F3D83CA4198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPGetMapsLocationsIndicatorsModel.h; sourceTree = "<group>"; };
-		F3D83CA5198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPGetMapsLocationsIndicatorsModel.m; sourceTree = "<group>"; };
-		F3D83CA6198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPGetMapsLocationsIndicatorsResults.h; sourceTree = "<group>"; };
-		F3D83CA7198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPGetMapsLocationsIndicatorsResults.m; sourceTree = "<group>"; };
 		F3D83CAA198E47F7007BAC70 /* BAPRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRateView.m; sourceTree = "<group>"; };
 		F3D83CAB198E47F7007BAC70 /* BAPRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPRateView.h; sourceTree = "<group>"; };
 		F3D83CAC198E47F7007BAC70 /* BAPBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPBusiness.m; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 		F3D83D16198E4946007BAC70 /* BAPStaticData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPStaticData.m; sourceTree = "<group>"; };
 		F3D83D17198E4946007BAC70 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		F3D83D18198E4946007BAC70 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		F3F2E17019A1E32D00B8106F /* BAPBeauticianFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianFeed.h; path = "Model/JSON Model/Beautician/BAPBeauticianFeed.h"; sourceTree = "<group>"; };
+		F3F2E17119A1E32D00B8106F /* BAPBeauticianFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianFeed.m; path = "Model/JSON Model/Beautician/BAPBeauticianFeed.m"; sourceTree = "<group>"; };
+		F3F2E17319A1E5DE00B8106F /* BAPBeauticiansArrayFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticiansArrayFeed.h; path = "Model/JSON Model/Beautician/BAPBeauticiansArrayFeed.h"; sourceTree = "<group>"; };
+		F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticiansArrayFeed.m; path = "Model/JSON Model/Beautician/BAPBeauticiansArrayFeed.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +233,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3998BE419A215F600FDFD8D /* OrderTreatment */ = {
+			isa = PBXGroup;
+			children = (
+				F3998BE519A2162D00FDFD8D /* BAPOrderTreatmenModel.h */,
+				F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */,
+				F3998BE819A2190600FDFD8D /* BAPOrderTreatmenFeed.h */,
+				F3998BE919A2190600FDFD8D /* BAPOrderTreatmenFeed.m */,
+			);
+			name = OrderTreatment;
+			sourceTree = "<group>";
+		};
 		F39BC1AE199A1E1A00C94C58 /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,8 +419,8 @@
 		F3AA056F198E456500079699 /* JSON Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3998BE419A215F600FDFD8D /* OrderTreatment */,
 				F39BC1B6199A247E00C94C58 /* BeauticiansLocation */,
-				F3D83CA3198E4796007BAC70 /* LocaTtion Indicators */,
 				F3AA0570198E458300079699 /* Beautician */,
 			);
 			name = "JSON Model";
@@ -410,21 +433,18 @@
 				F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */,
 				F3D83C9C198E4781007BAC70 /* BAPBeauticianRatingModel.h */,
 				F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */,
+				F30D930B199C951E00C7095D /* BAPBeauticianTreatmentsModel.h */,
+				F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */,
+				F397B42019A0D364001EF20E /* BAPBeauticianDegreesModel.h */,
+				F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */,
 				F3D83C9E198E4781007BAC70 /* BAPBeauticianModel.h */,
 				F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */,
+				F3F2E17019A1E32D00B8106F /* BAPBeauticianFeed.h */,
+				F3F2E17119A1E32D00B8106F /* BAPBeauticianFeed.m */,
+				F3F2E17319A1E5DE00B8106F /* BAPBeauticiansArrayFeed.h */,
+				F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */,
 			);
 			name = Beautician;
-			sourceTree = "<group>";
-		};
-		F3D83CA3198E4796007BAC70 /* LocaTtion Indicators */ = {
-			isa = PBXGroup;
-			children = (
-				F3D83CA4198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.h */,
-				F3D83CA5198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.m */,
-				F3D83CA6198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.h */,
-				F3D83CA7198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.m */,
-			);
-			name = "LocaTtion Indicators";
 			sourceTree = "<group>";
 		};
 		F3D83CBC198E480F007BAC70 /* SubView */ = {
@@ -635,13 +655,16 @@
 				F3D83CE5198E48A1007BAC70 /* BAPLocationSelectionV.m in Sources */,
 				F3D83CCA198E487F007BAC70 /* BAPBusinessOnMapCell.m in Sources */,
 				F3D83CBA198E47F7007BAC70 /* BAPBusinessAdress.m in Sources */,
-				F3D83CA8198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsModel.m in Sources */,
 				F3D83D10198E4910007BAC70 /* BAPUserProfileVC.m in Sources */,
 				F3D83D1A198E4946007BAC70 /* UIView+Layout.m in Sources */,
+				F397B42219A0D364001EF20E /* BAPBeauticianDegreesModel.m in Sources */,
 				F3D83CE7198E48A1007BAC70 /* BAPCommentsV.m in Sources */,
 				F3D83CB9198E47F7007BAC70 /* BAPMapViewAnnotation.m in Sources */,
 				F3D83CE1198E48A1007BAC70 /* BAPForHowSelectionV.m in Sources */,
+				F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */,
+				F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */,
 				F3D83CCB198E487F007BAC70 /* BAPTreatmentCell.m in Sources */,
+				F30D930D199C951E00C7095D /* BAPBeauticianTreatmentsModel.m in Sources */,
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F3D83CB7198E47F7007BAC70 /* BAPBusiness.m in Sources */,
 				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,
@@ -649,8 +672,8 @@
 				F3D83D12198E4910007BAC70 /* BAPRegulationsCV.m in Sources */,
 				F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */,
 				F3D83D0F198E4910007BAC70 /* BAPBeauticianSearchResultsVC.m in Sources */,
-				F3D83CA9198E47D2007BAC70 /* BAPGetMapsLocationsIndicatorsResults.m in Sources */,
 				F3D83D0E198E4910007BAC70 /* BAPBeauticianSearchVC.m in Sources */,
+				F3998BEA19A2190600FDFD8D /* BAPOrderTreatmenFeed.m in Sources */,
 				F3D83CF3198E48F7007BAC70 /* BAPBaseVC.m in Sources */,
 				F3D83CE9198E48A1007BAC70 /* BAPDateSelectionV.m in Sources */,
 				F3D83D0B198E4910007BAC70 /* BAPTreatmentVC.m in Sources */,
@@ -663,6 +686,7 @@
 				F3D83CBB198E47F7007BAC70 /* BAPBusinessRating.m in Sources */,
 				F39BC1BC199A254E00C94C58 /* BAPBeauticianLocationModel.m in Sources */,
 				F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */,
+				F3F2E17519A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m in Sources */,
 				F3AA0546198E28B200079699 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

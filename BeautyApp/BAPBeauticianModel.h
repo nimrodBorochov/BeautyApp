@@ -9,16 +9,27 @@
 #import "JSONModel.h"
 #import "BAPBeauticianAdressModel.h"
 #import "BAPBeauticianRatingModel.h"
+#import "BAPBeauticianTreatmentsModel.h"
+#import "BAPBeauticianDegreesModel.h"
+
+// Defined a protocol for ather classes to use as object
+@protocol BAPBeauticianModel @end
 
 @interface BAPBeauticianModel : JSONModel
 
-@property (strong, nonatomic) NSString* strBeauticianId;
-@property (strong, nonatomic) NSString* strBeauticianImageURL;
+@property (strong, nonatomic) NSString* strType;
+@property (assign, nonatomic) int intBeauticianId;
+@property (strong, nonatomic) NSString* strBeauticianUserId;
 @property (strong, nonatomic) NSString* strBeauticianName;
+@property (strong, nonatomic) NSString* strBeauticianType;
+@property (strong, nonatomic) NSString* strBeauticianEmail;
+@property (assign, nonatomic) double dblBeauticianLatitude;
+@property (assign, nonatomic) double dblBeauticianLongitude;
+@property (strong, nonatomic) NSString* strBeauticianDescription;
+@property (strong, nonatomic) NSString* strBeauticianImageURL;
+@property (strong, nonatomic) BAPBeauticianTreatmentsModel* beauticianTreatmentsModel;
+@property (strong, nonatomic) BAPBeauticianDegreesModel* beauticianDegreesModel;
 @property (strong, nonatomic) BAPBeauticianAdressModel* beauticianAdressModel;
 @property (strong, nonatomic) BAPBeauticianRatingModel* beauticianRatingModel;
-@property (strong, nonatomic) NSArray* arrBeauticianDegrees;
-@property (strong, nonatomic) NSString* strDescription;
-@property (strong, nonatomic) NSArray* arrBeauticiantreaTreatments;
 
 @end
