@@ -15,11 +15,12 @@
 {
     return [[JSONKeyMapper alloc] initWithDictionary:
             @{
-              @"__type"         :       @"strType",
-              @"id"            :       @"intBeauticianLocationID",
+              @"id"            :       @"strBeauticianLocationID",
               @"latitude"       :       @"dblBeauticianLocationLatitude",
-              @"longitude"      :       @"dblBeauticianLocationLongitude"
+              @"longitude"      :       @"dblBeauticianLocationLongitude",
+              @"name"          :       @"strBeauticianName"
               }];
 }
+
 
 @end

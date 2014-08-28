@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA1696F0D0CF4F6DAE6BBA36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03EBD6E4C6C45F59F87F012 /* libPods.a */; };
-		F30D930D199C951E00C7095D /* BAPBeauticianTreatmentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */; };
-		F397B42219A0D364001EF20E /* BAPBeauticianDegreesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */; };
+		F31535E819ADB66600477BD5 /* BAPRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */; };
 		F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */; };
 		F3998BEA19A2190600FDFD8D /* BAPOrderTreatmenFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE919A2190600FDFD8D /* BAPOrderTreatmenFeed.m */; };
 		F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */; };
@@ -90,10 +89,8 @@
 /* Begin PBXFileReference section */
 		3029216296514C8B8814007C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A03EBD6E4C6C45F59F87F012 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30D930B199C951E00C7095D /* BAPBeauticianTreatmentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianTreatmentsModel.h; path = "Model/JSON Model/Beautician/BAPBeauticianTreatmentsModel.h"; sourceTree = "<group>"; };
-		F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianTreatmentsModel.m; path = "Model/JSON Model/Beautician/BAPBeauticianTreatmentsModel.m"; sourceTree = "<group>"; };
-		F397B42019A0D364001EF20E /* BAPBeauticianDegreesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianDegreesModel.h; path = "Model/JSON Model/Beautician/BAPBeauticianDegreesModel.h"; sourceTree = "<group>"; };
-		F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianDegreesModel.m; path = "Model/JSON Model/Beautician/BAPBeauticianDegreesModel.m"; sourceTree = "<group>"; };
+		F31535E619ADB66600477BD5 /* BAPRegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPRegistrationVC.h; sourceTree = "<group>"; };
+		F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRegistrationVC.m; sourceTree = "<group>"; };
 		F3998BE519A2162D00FDFD8D /* BAPOrderTreatmenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenModel.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.h"; sourceTree = "<group>"; };
 		F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPOrderTreatmenModel.m; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.m"; sourceTree = "<group>"; };
 		F3998BE819A2190600FDFD8D /* BAPOrderTreatmenFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenFeed.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenFeed.h"; sourceTree = "<group>"; };
@@ -381,6 +378,8 @@
 				F3D83D07198E4910007BAC70 /* BAPWalkthroughContentVC.m */,
 				F3D83D08198E4910007BAC70 /* BAPWalkthroughVC.h */,
 				F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */,
+				F31535E619ADB66600477BD5 /* BAPRegistrationVC.h */,
+				F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -433,10 +432,6 @@
 				F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */,
 				F3D83C9C198E4781007BAC70 /* BAPBeauticianRatingModel.h */,
 				F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */,
-				F30D930B199C951E00C7095D /* BAPBeauticianTreatmentsModel.h */,
-				F30D930C199C951E00C7095D /* BAPBeauticianTreatmentsModel.m */,
-				F397B42019A0D364001EF20E /* BAPBeauticianDegreesModel.h */,
-				F397B42119A0D364001EF20E /* BAPBeauticianDegreesModel.m */,
 				F3D83C9E198E4781007BAC70 /* BAPBeauticianModel.h */,
 				F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */,
 				F3F2E17019A1E32D00B8106F /* BAPBeauticianFeed.h */,
@@ -652,19 +647,18 @@
 				F3D83CB8198E47F7007BAC70 /* BAPBusinessServices.m in Sources */,
 				F39BC1B9199A250B00C94C58 /* BAPBeauticiansLocationFeed.m in Sources */,
 				F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */,
+				F31535E819ADB66600477BD5 /* BAPRegistrationVC.m in Sources */,
 				F3D83CE5198E48A1007BAC70 /* BAPLocationSelectionV.m in Sources */,
 				F3D83CCA198E487F007BAC70 /* BAPBusinessOnMapCell.m in Sources */,
 				F3D83CBA198E47F7007BAC70 /* BAPBusinessAdress.m in Sources */,
 				F3D83D10198E4910007BAC70 /* BAPUserProfileVC.m in Sources */,
 				F3D83D1A198E4946007BAC70 /* UIView+Layout.m in Sources */,
-				F397B42219A0D364001EF20E /* BAPBeauticianDegreesModel.m in Sources */,
 				F3D83CE7198E48A1007BAC70 /* BAPCommentsV.m in Sources */,
 				F3D83CB9198E47F7007BAC70 /* BAPMapViewAnnotation.m in Sources */,
 				F3D83CE1198E48A1007BAC70 /* BAPForHowSelectionV.m in Sources */,
 				F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */,
 				F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */,
 				F3D83CCB198E487F007BAC70 /* BAPTreatmentCell.m in Sources */,
-				F30D930D199C951E00C7095D /* BAPBeauticianTreatmentsModel.m in Sources */,
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F3D83CB7198E47F7007BAC70 /* BAPBusiness.m in Sources */,
 				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,

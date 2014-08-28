@@ -19,14 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self setupNavigationBar];
 }
 
 
-- (void)setupNavigationBar
-{
-    
-}
+
 
 @end

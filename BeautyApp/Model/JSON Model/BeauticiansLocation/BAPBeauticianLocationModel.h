@@ -13,9 +13,9 @@
 
 @interface BAPBeauticianLocationModel : JSONModel
 
-@property (strong, nonatomic) NSString* strType;
-@property (assign, nonatomic) int intBeauticianLocationID;
+@property (strong, nonatomic) NSString* strBeauticianLocationID;
 @property (assign, nonatomic) double dblBeauticianLocationLatitude;
 @property (assign, nonatomic) double dblBeauticianLocationLongitude;
+@property (strong, nonatomic) NSString* strBeauticianName;
 
 @end

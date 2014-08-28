@@ -13,6 +13,6 @@
 
 // Feed property
 // Use BAPBeauticianLocationModel protocol tell the model that this property contains a list of objects of the  BAPBeauticianLocationModel class
-@property (strong, nonatomic) BAPOrderTreatmenModel* orderTreatmenModel;
+@property (strong, nonatomic) NSArray* d;
 
 @end

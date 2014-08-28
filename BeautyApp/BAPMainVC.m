@@ -23,6 +23,7 @@
 #import "BAPGetBeauticiansLocationByPostCoordinates.h"
 #import "BAPBeauticianLocationModel.h"
 
+
 static NSInteger const SPACER_ITEM_WITH = 16;
 static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 static long const MAPVIEW_DIV_FACTOR = 1.4375;
@@ -440,7 +441,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         coord.latitude = beauticianLocationModel.dblBeauticianLocationLatitude;
         coord.longitude = beauticianLocationModel.dblBeauticianLocationLongitude;
         
-        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.intBeauticianLocationID AndCoordinate:coord];
+        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.strBeauticianLocationID AndCoordinate:coord];
         
         [annotations addObject:annotation];
     }

@@ -8,12 +8,9 @@
 
 #import "JSONModel.h"
 
-// Defined a protocol for ather classes to use as object
-@protocol BAPBeauticianRatingModel @end
-
 @interface BAPBeauticianRatingModel : JSONModel
 
-@property (nonatomic) double dblRate;
-@property (nonatomic) int intRaters;
+@property (assign, nonatomic) double dblRate;
+@property (assign, nonatomic) int intRaters;
 
 @end
