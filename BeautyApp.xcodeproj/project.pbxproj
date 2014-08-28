@@ -29,6 +29,7 @@
 		F3AA055F198E28B200079699 /* BeautyAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA055E198E28B200079699 /* BeautyAppTests.m */; };
 		F3AA056A198E295300079699 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0568198E295300079699 /* CoreLocation.framework */; };
 		F3AA056B198E295300079699 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0569198E295300079699 /* MapKit.framework */; };
+		F3AA171619AF6AFE00577310 /* BAPVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */; };
 		F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */; };
 		F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */; };
 		F3D83CA2198E4781007BAC70 /* BAPBeauticianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */; };
@@ -121,6 +122,8 @@
 		F3AA055E198E28B200079699 /* BeautyAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyAppTests.m; sourceTree = "<group>"; };
 		F3AA0568198E295300079699 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3AA0569198E295300079699 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPVerificationVC.h; sourceTree = "<group>"; };
+		F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPVerificationVC.m; sourceTree = "<group>"; };
 		F3D83C9A198E4781007BAC70 /* BAPBeauticianAdressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPBeauticianAdressModel.h; sourceTree = "<group>"; };
 		F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPBeauticianAdressModel.m; sourceTree = "<group>"; };
 		F3D83C9C198E4781007BAC70 /* BAPBeauticianRatingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPBeauticianRatingModel.h; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */,
 				F31535E619ADB66600477BD5 /* BAPRegistrationVC.h */,
 				F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */,
+				F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */,
+				F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -641,6 +646,7 @@
 				F3D83D0C198E4910007BAC70 /* BAPMainVC.m in Sources */,
 				F39BC1B5199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m in Sources */,
 				F3D83CEB198E48A1007BAC70 /* BAPMenuV.m in Sources */,
+				F3AA171619AF6AFE00577310 /* BAPVerificationVC.m in Sources */,
 				F3D83D19198E4946007BAC70 /* BAPStaticData.m in Sources */,
 				F3D83CCD198E487F007BAC70 /* BAPTreatmentHistoryCell.m in Sources */,
 				F3D83CF2198E48F7007BAC70 /* BAPBaseReservationVC.m in Sources */,
