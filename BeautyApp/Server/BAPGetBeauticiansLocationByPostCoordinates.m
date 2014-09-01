@@ -9,7 +9,6 @@
 #import "BAPGetBeauticiansLocationByPostCoordinates.h"
 #import "JSONModelLib.h"
 #import "BAPBeauticiansLocationFeed.h"
-#import <MapKit/MapKit.h>
 
 static NSString* const POST_COORDINATES_METHOD_PATH = @"/postlatitudelongitude";
 

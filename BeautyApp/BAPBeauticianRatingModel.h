@@ -10,7 +10,7 @@
 
 @interface BAPBeauticianRatingModel : JSONModel
 
-@property (assign, nonatomic) double dblRate;
-@property (assign, nonatomic) int intRaters;
+@property (nonatomic) float fltRate;
+@property (nonatomic) int intRaters;
 
 @end

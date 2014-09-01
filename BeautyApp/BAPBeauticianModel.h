@@ -20,8 +20,8 @@
 @property (strong, nonatomic) NSString* strBeauticianName;
 @property (strong, nonatomic) NSString* strBeauticianType;
 @property (strong, nonatomic) NSString* strBeauticianEmail;
-@property (assign, nonatomic) double dblBeauticianLatitude;
-@property (assign, nonatomic) double dblBeauticianLongitude;
+@property (       nonatomic) double dblBeauticianLatitude;
+@property (       nonatomic) double dblBeauticianLongitude;
 @property (strong, nonatomic) NSString* strBeauticianDescription;
 @property (strong, nonatomic) NSString* strBeauticianImageURL;
 @property (strong, nonatomic) NSArray* arrBeauticianTreatments;

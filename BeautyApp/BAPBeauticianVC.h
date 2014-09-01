@@ -7,13 +7,11 @@
 //
 
 #import "BAPBaseVC.h"
-#import "BAPBusiness.h"
-#import "BAPRateView.h"
+#import "BAPBeauticianModel.h"
 
 @interface BAPBeauticianVC : BAPBaseVC
 
-@property (strong,nonatomic)BAPBusiness* business;
-
-
+@property (strong, nonatomic) BAPBeauticianModel*
+beauticianModel;
 
 @end

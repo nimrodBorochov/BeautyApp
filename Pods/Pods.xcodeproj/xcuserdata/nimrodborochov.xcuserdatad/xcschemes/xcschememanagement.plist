@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RateView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9AA4A1C1B9904C8E8D8F6C09</key>
+		<key>0B0BFD835CB1467DB4FFBFCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8D4165409BB4BADB51B23BD</key>
+		<key>63BFE1B51EF042418AB0C3A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CCB4349FD87042968CFA6AE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0022F4C933541E48FC149B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BAPRateView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BAPBusinessOnMapCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *ivBusinesImage;
+
 - (void)setUpCellWithBusinesName:(NSString *)name
-                          adress:(NSString *)adress
-                firstCertificate:(NSString *)firstCertificate
-               secondCertificate:(NSString *)secondCertificate
-                       andRating:(int)rating
-                       andRaters:(int)raters
-                        andImage:(UIImage *)image;
+                            city:(NSString *)city
+                          street:(NSString *)street
+                       andRating:(float)rating
+                       andRaters:(int)raters;
 
 @end

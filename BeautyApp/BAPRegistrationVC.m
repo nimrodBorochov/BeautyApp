@@ -7,6 +7,7 @@
 //
 
 #import "BAPRegistrationVC.h"
+#import "BAPVerificationVC.h"
 
 @interface BAPRegistrationVC ()<UITextFieldDelegate>
 
@@ -74,7 +75,12 @@
     }
     else
     {
+        /// TODO: send to ws the info strings and whit for response
         
+        
+        BAPVerificationVC* verificationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPVerificationVC"];;
+        [self presentViewController:verificationVC animated:YES completion:nil];
+       
     }
     
 }

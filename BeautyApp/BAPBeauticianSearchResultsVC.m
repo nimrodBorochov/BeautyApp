@@ -42,21 +42,21 @@
     
     
     
-    NSString* strBusinessName = @"";
+//    NSString* strBusinessName = @"";
+//    
+//    NSString* strBusinessAdress = @"";
+//    
+//    int numberOfstrRaters = 0;
+//    
+//    UIImage* imageOfBusiness = [UIImage imageNamed:@""];
+//    
+//    int numberBusinessRateAverage = 0;
+//    
+//    NSString* strFirstCertificate = @"";
+//    
+//    NSString* strSecondCertificate = @"";
     
-    NSString* strBusinessAdress = @"";
-    
-    int numberOfstrRaters = 0;
-    
-    UIImage* imageOfBusiness = [UIImage imageNamed:@""];
-    
-    int numberBusinessRateAverage = 0;
-    
-    NSString* strFirstCertificate = @"";
-    
-    NSString* strSecondCertificate = @"";
-    
-    [businessOnMapCell setUpCellWithBusinesName:strBusinessName adress:strBusinessAdress firstCertificate:strFirstCertificate secondCertificate:strSecondCertificate andRating:numberBusinessRateAverage andRaters:numberOfstrRaters andImage:imageOfBusiness];
+//    [businessOnMapCell setUpCellWithBusinesName:strBusinessName adress:strBusinessAdress firstCertificate:strFirstCertificate secondCertificate:strSecondCertificate andRating:numberBusinessRateAverage andRaters:numberOfstrRaters andImage:imageOfBusiness];
     
     return businessOnMapCell;
 }

@@ -8,6 +8,9 @@
 
 #import "BAPBeauticianVC.h"
 #import "BAPReservationVC.h"
+#import "RateView.h"
+
+static NSString* const RATERS = @"מדרגים";
 
 @interface BAPBeauticianVC ()
 
@@ -19,38 +22,31 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblBeauticianFirstCertificate;
 @property (weak, nonatomic) IBOutlet UILabel *lblBeauticianSecondCertificate;
 @property (weak, nonatomic) IBOutlet UITextView *tvBeauticianTreatments;
-
-@property (weak, nonatomic) IBOutlet BAPRateView *rateView;
-
 @property (weak, nonatomic) IBOutlet UIView *vTitle;
 @property (weak, nonatomic) IBOutlet UIView *vRate;
 @property (weak, nonatomic) IBOutlet UIView *vDegrees;
 @property (weak, nonatomic) IBOutlet UIView *vCertificates;
 @property (weak, nonatomic) IBOutlet UIView *vTreatments;
 @property (weak, nonatomic) IBOutlet UIButton *btnOrderTreatments;
+@property (weak, nonatomic) IBOutlet UIView *vRateView;
+
+@property (strong, nonatomic) RateView* rateView;
 
 @end
 
 @implementation BAPBeauticianVC
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self updateUI];
+    [self arrangeUI];
+    
+    [self updateUIWithBeautician:self.beauticianModel];
 }
 
-- (void)updateUI
+- (void)arrangeUI
 {
     self.vTitle.layer.borderColor = [UIColor blackColor].CGColor;
     self.vTitle.layer.borderWidth = 1.0f;
@@ -67,48 +63,138 @@
     self.btnOrderTreatments.layer.cornerRadius = 5;
     self.btnOrderTreatments.layer.borderColor = [UIColor blueColor].CGColor;
     
-    self.lblBeauticianFullName.text = self.business.strBusinessName;
-    self.lblBeauticianFullAdress.text = self.business.strBusinessFullAdress;
-    self.lblRatersCount.text = self.business.businessRating.numBusinessRaters.stringValue;
-    self.lblBeauticianFirstCertificate.text = self.business.strBeauticianFirstCertificate;
-    self.lblBeauticianSecondCertificate.text = self.business.strBeauticianSecondCertificate;
-    self.ivBeautician.image = self.business.imageOfBusines;
+    [self setupRateVeiw];
+}
+
+- (void)updateUIWithBeautician:(BAPBeauticianModel *)beautician
+{
+    // Init outlets with data
     
-    self.rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
-    self.rateView.halfSelectedImage = [UIImage imageNamed:@"kermit_half.png"];
-    self.rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
-    self.rateView.rating = [self.business.businessRating.numBusinessRateAverage intValue];
-    self.rateView.editable = NO;
-    self.rateView.maxRating = 5;
+    if (beautician.strBeauticianImageURL.length > 0)
+    {
+        NSURL* imageURL = [NSURL URLWithString:beautician.strBeauticianImageURL];
+        NSData* imageData = [NSData dataWithContentsOfURL:imageURL];
+        self.ivBeautician.image = [UIImage imageWithData:imageData];
+    }
+    else
+    {
+        self.ivBeautician.image = [UIImage imageNamed:@"imageCell"];
+    }
     
-    self.lblRatersCount.text = [NSString stringWithFormat:@"%@ מדרגים", self.business.businessRating.numBusinessRateAverage];
-    self.tvBeaticianDegrees.text = self.business.strBeauticianDegrees;
-    self.tvBeauticianTreatments.text = @"בטיפול";
+    if (beautician.strBeauticianName.length > 0)
+    {
+        self.lblBeauticianFullName.text = beautician.strBeauticianName;
+    }
+    else
+    {
+        self.lblBeauticianFullName.text = @"";
+    }
+    
+    if (beautician.beauticianAdressModel.strBeauticianCity.length > 0)
+    {
+        if (beautician.beauticianAdressModel.strBeauticianStreet.length > 0)
+        {
+            self.lblBeauticianFullAdress.text = [NSString stringWithFormat:@"%@ %@", beautician.beauticianAdressModel.strBeauticianCity, beautician.beauticianAdressModel.strBeauticianStreet];
+        }
+        else
+        {
+            self.lblBeauticianFullAdress.text = beautician.beauticianAdressModel.strBeauticianCity;
+        }
+    }
+    else
+    {
+        self.lblBeauticianFullAdress.text = @"";
+    }
+    
+    if (beautician.beauticianRatingModel.intRaters > 0)
+    {
+        if (beautician.beauticianRatingModel.fltRate > 0)
+        {
+            self.rateView.rating = beautician.beauticianRatingModel.fltRate;
+        }
+        else
+        {
+            self.rateView.rating = 0;
+        }
+        
+        self.lblRatersCount.text = [NSString stringWithFormat:@"(%@ %d)",RATERS, beautician.beauticianRatingModel.intRaters];
+    }
+    else
+    {
+        self.rateView.rating = 0;
+        self.lblRatersCount.text = @"";
+    }
+    
+    if (beautician.strBeauticianDescription.length > 0)
+    {
+        self.tvBeauticianTreatments.text = beautician.strBeauticianDescription;
+    }
+    else
+    {
+        self.tvBeauticianTreatments.text = @"";
+    }
+    
+    if ([beautician.arrBeauticianDegrees count] == 2)
+    {
+        self.lblBeauticianFirstCertificate.text = beautician.arrBeauticianDegrees[0];
+        self.lblBeauticianSecondCertificate.text = beautician.arrBeauticianDegrees[1];
+    }
+    else  if ([beautician.arrBeauticianDegrees count] == 1)
+    {
+        self.lblBeauticianFirstCertificate.text = beautician.arrBeauticianDegrees[0];
+        self.lblBeauticianSecondCertificate.text = @"";
+    }
+    else
+    {
+        self.lblBeauticianFirstCertificate.text = @"";
+        self.lblBeauticianSecondCertificate.text = @"";
+    }
+    
+    if ([beautician.arrBeauticianTreatments count] > 0)
+    {
+        ///TODO: Treatments list
+        
+        for (int indexArrBeauticianTreatments = 0; indexArrBeauticianTreatments == [beautician.arrBeauticianTreatments count]; indexArrBeauticianTreatments++)
+        {
+            if (indexArrBeauticianTreatments%2 == 0 && indexArrBeauticianTreatments > 0)
+            {
+                self.tvBeauticianTreatments.text = [self.tvBeauticianTreatments.text stringByAppendingString:@"\n"];
+            }
+            self.tvBeauticianTreatments.text = [self.tvBeauticianTreatments.text stringByAppendingString:[NSString stringWithFormat:@" •%d", (int)beautician.arrBeauticianTreatments[indexArrBeauticianTreatments]]];
+        }
+        
+    }
+    else
+    {
+        self.tvBeauticianTreatments.text = @"";
+    }
+}
+
+- (void)setupRateVeiw
+{
+    self.rateView = [[RateView alloc]initWithFrame:CGRectMake(0, 0, 117, 38)];
+    
+    self.rateView.tag = 88888;
+    
+    [self.vRateView addSubview:self.rateView];
+    
+    ///
+    self.rateView.starSize = 22;
+    
+    self.rateView.starNormalColor = [UIColor colorWithRed:255/255.0f green:255/255.0f
+                                                     blue:255/255.0 alpha:1.0];
+    self.rateView.starFillColor = [UIColor colorWithRed:255/255.0f green:209/255.0f
+                                                   blue:23/255.0 alpha:1.0];
+    self.rateView.starBorderColor = [UIColor colorWithRed:38/255.0f green:38/255.0f
+                                                     blue:38/255.0 alpha:1.0];
 }
 
 - (IBAction)btnMakeReservationTapped:(id)sender
 {
-    BAPReservationVC* reservationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPReservationVC"];
+    //    BAPReservationVC* reservationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPReservationVC"];
+    //
+    //    [self.navigationController pushViewController:reservationVC animated:YES];
     
-    [self.navigationController pushViewController:reservationVC animated:YES];
-    
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

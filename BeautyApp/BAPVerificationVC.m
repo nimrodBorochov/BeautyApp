@@ -7,43 +7,34 @@
 //
 
 #import "BAPVerificationVC.h"
+#import "BAPWalkthroughVC.h"
 
-@interface BAPVerificationVC ()
+@interface BAPVerificationVC ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *txtVerificationCode;
 
 @end
 
 @implementation BAPVerificationVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.txtVerificationCode.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)btnContinueTapped:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    ///Todo: Check Verification for Continue
+    
+    BAPWalkthroughVC* walkthroughVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPWalkthroughVC"];;
+    [self presentViewController:walkthroughVC animated:NO completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
-*/
 
 @end

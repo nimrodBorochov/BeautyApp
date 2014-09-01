@@ -8,7 +8,6 @@
 
 #import "BAPMainVC.h"
 #import "BAPMapViewAnnotation.h"
-#import "BAPStaticData.h"
 #import "BAPBusinessOnMapCell.h"
 #import "BAPBeauticianVC.h"
 #import "BAPBeauticianSearchVC.h"
@@ -22,9 +21,13 @@
 #import "BAPBeauticiansLocationFeed.h"
 #import "BAPGetBeauticiansLocationByPostCoordinates.h"
 #import "BAPBeauticianLocationModel.h"
+#import "BAPGetBeauticansArrayForPostBeauticansIdsArray.h"
+#import "BAPBeauticiansArrayFeed.h"
+#import "BAPBeauticianModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
-static NSInteger const SPACER_ITEM_WITH = 16;
+static NSInteger const SPACER_ITEM_WITH = 22;
 static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 static long const MAPVIEW_DIV_FACTOR = 1.4375;
 static NSInteger const MAPVIEW_HEIGHT_4I = 460;
@@ -42,16 +45,13 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 // Private properties
 
-@property (strong, nonatomic) NSMutableArray* mArrBusiness;
-@property (strong, nonatomic)NSMutableArray* mArrBusinessOnScreen;
-
 @property (strong, nonatomic) NSMutableArray* mArrbeauticiansLocation;
-@property (strong, nonatomic) NSMutableArray* mArrbeauticiansLocationOnScreen;
+@property (strong, nonatomic) NSMutableArray* mArrIdsOfbeauticiansOnScreen;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *startLocation;
 
 @property (strong, nonatomic) BAPBeauticiansLocationFeed* beauticiansLocationFeed;
-//@property (strong, nonatomic) BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
+@property (strong, nonatomic) BAPBeauticiansArrayFeed* beauticiansArrayFeed;
 
 @end
 
@@ -62,18 +62,13 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 {
     [super viewDidLoad];
     
+    self.mArrIdsOfbeauticiansOnScreen = [NSMutableArray new];
+    
     [self setupNavigationBar];
     
     [self setupMap];
     
     [self showAnnotations];
-    
-    // Init mArrBusinessOnScreen
-    
-    self.mArrBusinessOnScreen = [NSMutableArray new];
-    
-    self.mArrbeauticiansLocationOnScreen = [NSMutableArray new];
-    [self updateMArrBusinessOnScrenn];
     
     [self uiMenu];
     
@@ -108,6 +103,20 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     // Create the custom bar botton item
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton] ;
     
+    /// Custom Posts Button
+    // Set the frame with image
+    UIImage* postsImage = [UIImage imageNamed:@"Posts.png"];
+    UIButton* postsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    postsButton.frame = CGRectMake(0, 0, postsImage.size.width, postsImage.size.height);
+    [postsButton setImage:postsImage forState:UIControlStateNormal];
+    
+    // Set target method
+    [postsButton addTarget:self action:@selector(postsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Create the custom bar botton item
+    UIBarButtonItem *postsBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:postsButton] ;
+    
     /// Custom Beautician Search Button
     // Set the frame with image
     UIImage* beauticianSearchImage = [UIImage imageNamed:@"BeauticianSearch.png"];
@@ -122,20 +131,35 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     // Create the custom bar botton item
     UIBarButtonItem *beauticianSearchBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:beauticianSearchButton] ;
     
-    /// Custom Beautician Search Button
+    /// Custom Beautician tretment Button
     // Set the frame with image
-    UIImage* tretmentOrderImage = [UIImage imageNamed:@"TretmentOrder.png"];
-    UIButton* tretmentOrderButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage* tretmentsImage = [UIImage imageNamed:@"treatments.png"];
+    UIButton* tretmentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    tretmentOrderButton.frame = CGRectMake(0, 0, tretmentOrderImage.size.width, tretmentOrderImage.size.height);
-    [tretmentOrderButton setImage:tretmentOrderImage forState:UIControlStateNormal];
+    tretmentButton.frame = CGRectMake(0, 0, tretmentsImage.size.width, tretmentsImage.size.height);
+    [tretmentButton setImage:tretmentsImage forState:UIControlStateNormal];
     
     // Set target method
-    [tretmentOrderButton addTarget:self action:@selector(tretmentOrderTapped) forControlEvents:UIControlEventTouchUpInside];
+    [tretmentButton addTarget:self action:@selector(tretmentButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     
     // Create the custom bar botton item
-    UIBarButtonItem *tretmentOrderBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tretmentOrderButton] ;
+    UIBarButtonItem *tretmentOrderBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tretmentButton] ;
     
+    /// Custom Beautician tretment Button
+    // Set the frame with image
+    UIImage* logoImage = [UIImage imageNamed:@"logo.png"];
+    UIButton* logoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    logoButton.frame = CGRectMake(0, 0, logoImage.size.width, logoImage.size.height);
+    [logoButton setImage:logoImage forState:UIControlStateNormal];
+    
+    
+    
+    // Create the custom bar botton item
+    UIBarButtonItem *logoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:logoButton] ;
+    
+    
+    ///
     // Create Spacer item
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -144,7 +168,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     negativeSpacer.width = SPACER_ITEM_WITH;
     
     // Create Array with the button items
-    NSArray *actionButtonItems = @[menuBarButtonItem, negativeSpacer, beauticianSearchBarButtonItem, negativeSpacer,tretmentOrderBarButtonItem];
+    NSArray *actionButtonItems = @[logoBarButtonItem, negativeSpacer, tretmentOrderBarButtonItem, negativeSpacer,beauticianSearchBarButtonItem, negativeSpacer, postsBarButtonItem, negativeSpacer, menuBarButtonItem];
     
     // Replace exist item button with custom arrButton items
     self.navigationItem.leftBarButtonItems = actionButtonItems;
@@ -183,11 +207,6 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 - (void)showAnnotations
 {
-//    BAPStaticData* data = [BAPStaticData new];
-//    
-//    self.mArrBusiness = [data createStaticData];
-//    
-//    [self.mapView addAnnotations:[self createAnnotations]];
     CLLocation* currentLocation;
     
     if (self.mapView.userLocation.location.coordinate.latitude != 0)
@@ -201,8 +220,9 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     
     BAPGetBeauticiansLocationByPostCoordinates* getBeauticiansLocationByPostCoordinates;
     
-    self.beauticiansLocationFeed = [BAPBeauticiansLocationFeed new];
     getBeauticiansLocationByPostCoordinates = [BAPGetBeauticiansLocationByPostCoordinates new];
+    
+    self.beauticiansLocationFeed = [BAPBeauticiansLocationFeed new];
     
     [getBeauticiansLocationByPostCoordinates getBeauticiansLocationForLatitude:(double)currentLocation.coordinate.latitude longitude:(double)currentLocation.coordinate.longitude successBlock:^(id jsonObject) {
         
@@ -211,7 +231,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         NSLog(@"num of object: %lu", (unsigned long)self.beauticiansLocationFeed.arrBeauticiansLocation.count);
         
         [self.mapView addAnnotations:[self createAnnotations]];
-    
+        
     } failerBlock:^(NSError *error) {
         
         NSLog(@"Error getjson:%@", error);
@@ -219,23 +239,9 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     }];
 }
 
-- (void)updateMArrBusinessOnScrenn
+- (void)updateMArrIdsBusinessOnScrenn
 {
-//    [self.mArrBusinessOnScreen removeAllObjects];
-//    
-//    for (BAPBusiness* business in self.mArrBusiness)
-//    {
-//        //Create coordinates from the latitude and longitude values
-//        CLLocationCoordinate2D coord;
-//        coord.latitude = business.businessAdress.numBusinessLatitude;
-//        coord.longitude = business.businessAdress.numBusinessLongitude;
-//        
-//        if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
-//        {
-//            [self.mArrBusinessOnScreen addObject:business];
-//        }
-//    }
-    [self.mArrbeauticiansLocationOnScreen removeAllObjects];
+    [self.mArrIdsOfbeauticiansOnScreen removeAllObjects];
     
     for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
     {
@@ -246,7 +252,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         
         if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
         {
-            [self.mArrbeauticiansLocationOnScreen addObject:beauticianLocationModel];
+            [self.mArrIdsOfbeauticiansOnScreen addObject:beauticianLocationModel.strBeauticianLocationID];
         }
     }
 }
@@ -307,6 +313,11 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     }
 }
 
+- (void)postsButtonTapped
+{
+    
+}
+
 - (void)beauticianSearchTapped
 {
     if (!self.dimView.hidden)
@@ -323,7 +334,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     }
 }
 
-- (void)tretmentOrderTapped
+- (void)tretmentButtonTapped
 {
     if (!self.dimView.hidden)
     {
@@ -345,26 +356,46 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     {
         [self closeMenuWithAnimation:YES];
     }
-    
-    // Collect all business on visible map view
-    [self updateMArrBusinessOnScrenn];
-    
-    // reload table data with that array
-    [self.tableBusinessOnScreen reloadData];
-    
-    // Show the table with animation
-    [UIView animateWithDuration:1 animations:^{
-        if (self.constraintHeightOfTable.constant == 0)
-        {
-            self.constraintHeightOfTable.constant = 460;
-        }
-        else
-        {
+    else if (self.constraintHeightOfTable.constant > 0)
+    {
+        [UIView animateWithDuration:1 animations:^{
             self.constraintHeightOfTable.constant = 0;
-        }
+            
+            [self.view layoutIfNeeded];
+        }];
+    }
+    else
+    {
+        // Collect all business on visible map view
+        [self updateMArrIdsBusinessOnScrenn];
         
-        [self.view layoutIfNeeded];
-    }];
+        BAPGetBeauticansArrayForPostBeauticansIdsArray* getBeauticansArrayForPostBeauticansIdsArray = [BAPGetBeauticansArrayForPostBeauticansIdsArray new];
+        
+        self.beauticiansArrayFeed = [BAPBeauticiansArrayFeed new];
+        
+        [getBeauticansArrayForPostBeauticansIdsArray getBeauticiansArrayForBeauticansIdsArray:self.mArrIdsOfbeauticiansOnScreen successBlock:^(id jsonObject) {
+            
+            self.beauticiansArrayFeed = jsonObject;
+            
+            // reload table data with that array
+            [self.tableBusinessOnScreen reloadData];
+            
+            // Show the table with animation
+            [UIView animateWithDuration:1 animations:^{
+                
+                    self.constraintHeightOfTable.constant = 460;
+                
+                
+                [self.view layoutIfNeeded];
+            }];
+            
+        } failerBlock:^(NSError *error) {
+            
+            NSLog(@"error loading jason: %@", error);
+            
+        }];
+        
+    }
 }
 
 #pragma mark - MapView delegate methods
@@ -404,13 +435,13 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     
     BAPBeauticianVC *beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
     
-    for (BAPBusiness* business in self.mArrBusinessOnScreen)
-    {
-        /// TODO: change to id
-        if ([business.strBusinessName isEqualToString:mapViewAnnotation.title]) {
-            beauticianVC.business = business;
-        }
-    }
+    //    for (BAPBusiness* business in self.mArrBusinessOnScreen)
+    //    {
+    //        /// TODO: change to id
+    //        if ([business.strBusinessName isEqualToString:mapViewAnnotation.title]) {
+    //            beauticianVC.business = business;
+    //        }
+    //    }
     
     [self.navigationController pushViewController:beauticianVC animated:YES];
     
@@ -419,7 +450,6 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     /// TODO: take care about ifim :)
-    [self updateMArrBusinessOnScrenn];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -432,7 +462,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 {
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
-
+    
     for (BAPBeauticianLocationModel* beauticianLocationModel in self.beauticiansLocationFeed.arrBeauticiansLocation)
     {
         //Create coordinates from the latitude and longitude values
@@ -453,34 +483,35 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.mArrbeauticiansLocationOnScreen.count;
+    return self.beauticiansArrayFeed.arrBeauticiansModel.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{///TODO
+{
     BAPBusinessOnMapCell* businessOnMapCell = [tableView dequeueReusableCellWithIdentifier:@"businessOnMapCell"];
     
     if (!businessOnMapCell)
     {
         businessOnMapCell = [[NSBundle mainBundle] loadNibNamed:@"BAPBusinessOnMapCell" owner:self options:nil][0];
     }
+    // Take care of images in table
+    NSURL * imageURL = [NSURL URLWithString:((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).strBeauticianImageURL];
     
-    NSString* strBusinessName = ((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).strBusinessName;
+    [businessOnMapCell.ivBusinesImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"imageCell"]];
     
-    NSString* strBusinessAdress = ((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).strBusinessFullAdress;
+    //
+    NSString* strBusinessName = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).strBeauticianName;
+
+    NSString* strBusinessCity = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianAdressModel.strBeauticianCity;
     
-    int numberOfstrRaters = [((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).businessRating.numBusinessRaters intValue];
+    NSString* strBusinessStreet = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianAdressModel.strBeauticianStreet;
     
-    UIImage* imageOfBusiness = ((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).imageOfBusines;
+    int numberOfstrRaters = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianRatingModel.intRaters;
+
+    float numberBusinessRateAverage = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianRatingModel.fltRate;
     
-    int numberBusinessRateAverage = [((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).businessRating.numBusinessRateAverage intValue];
-    
-    NSString* strFirstCertificate = ((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).strBeauticianFirstCertificate;
-    
-    NSString* strSecondCertificate = ((BAPBusiness *)self.mArrBusinessOnScreen[indexPath.row]).strBeauticianSecondCertificate;
-    
-    [businessOnMapCell setUpCellWithBusinesName:strBusinessName adress:strBusinessAdress firstCertificate:strFirstCertificate secondCertificate:strSecondCertificate andRating:numberBusinessRateAverage andRaters:numberOfstrRaters andImage:imageOfBusiness];
-    
+    [businessOnMapCell setUpCellWithBusinesName:strBusinessName city:strBusinessCity street:strBusinessStreet andRating:numberBusinessRateAverage andRaters:numberOfstrRaters];
+
     return businessOnMapCell;
 }
 
@@ -491,7 +522,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     BAPBeauticianVC* beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
     
     // Set view controller property
-    beauticianVC.business = self.mArrbeauticiansLocationOnScreen[indexPath.row];
+    beauticianVC.beauticianModel = self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row];
     
     // Push to MSLEmployeeProfileVC
     [self.navigationController pushViewController:beauticianVC animated:YES];
