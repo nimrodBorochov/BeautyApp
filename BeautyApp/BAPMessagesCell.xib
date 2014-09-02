@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="KGk-i7-Jjw" customClass="BAPMessagesCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eb3-79-zwU">
+                        <rect key="frame" x="262" y="4" width="52" height="65"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="4xx-Q5-Aue"/>
+                            <constraint firstAttribute="width" constant="52" id="a4w-yD-eDP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[NameOfTheBusiness]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pjP-Hs-xcd">
+                        <rect key="frame" x="82" y="6" width="176" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="zFf-b3-KmT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[CityNameStreetName+Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BY4-yg-SI3">
+                        <rect key="frame" x="68" y="33" width="190" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="3dt-Jp-RtX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[date and time getting massage]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-RQ-wEc">
+                        <rect key="frame" x="6" y="54" width="151" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="zyO-YC-J4T"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eb3-79-zwU" firstAttribute="leading" secondItem="pjP-Hs-xcd" secondAttribute="trailing" constant="4" id="1dD-np-vYT"/>
+                    <constraint firstItem="pjP-Hs-xcd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="6tP-6M-X8N"/>
+                    <constraint firstItem="eb3-79-zwU" firstAttribute="leading" secondItem="BY4-yg-SI3" secondAttribute="trailing" constant="4" id="7ED-Dw-UgN"/>
+                    <constraint firstItem="BY4-yg-SI3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="Cjv-QL-W5v"/>
+                    <constraint firstItem="pjP-Hs-xcd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="HoS-6b-vTf"/>
+                    <constraint firstAttribute="trailing" secondItem="eb3-79-zwU" secondAttribute="trailing" constant="6" id="YfM-l3-OnI"/>
+                    <constraint firstItem="eb3-79-zwU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ptr-RQ-wEc" secondAttribute="trailing" constant="4" id="Z1y-gd-Thj"/>
+                    <constraint firstAttribute="bottom" secondItem="ptr-RQ-wEc" secondAttribute="bottom" constant="6" id="aJb-oC-078"/>
+                    <constraint firstAttribute="centerY" secondItem="eb3-79-zwU" secondAttribute="centerY" id="gVh-Wk-fva"/>
+                    <constraint firstItem="BY4-yg-SI3" firstAttribute="top" secondItem="pjP-Hs-xcd" secondAttribute="bottom" constant="6" id="qdb-qP-ZNU"/>
+                    <constraint firstItem="ptr-RQ-wEc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="tEg-U2-7WA"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 pictureit. All rights reserved.
 //
 
-#import "BAPRegulationsCV.h"
+#import "BAPRegulationsVC.h"
 
 static NSString* const REGULATIONS_HEB = @"תקנון";
 
-@interface BAPRegulationsCV ()
+@interface BAPRegulationsVC ()
 
 @property (weak, nonatomic) IBOutlet UITextView *tvRegulations;
 
 @end
 
-@implementation BAPRegulationsCV
+@implementation BAPRegulationsVC
 
 - (void)viewDidLoad
 {

@@ -8,6 +8,6 @@
 
 #import "BAPBaseVC.h"
 
-@interface BAPRegulationsCV : BAPBaseVC
+@interface BAPRegulationsVC : BAPBaseVC
 
 @end

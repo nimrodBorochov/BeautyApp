@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		CA1696F0D0CF4F6DAE6BBA36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03EBD6E4C6C45F59F87F012 /* libPods.a */; };
 		F31535E819ADB66600477BD5 /* BAPRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */; };
+		F32FB3DA19B5D6BF00CDB254 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3D919B5D6BF00CDB254 /* UIBarButtonItem+Badge.m */; };
+		F32FB3DD19B5E4F000CDB254 /* BAPMessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */; };
+		F32FB3E119B5E67A00CDB254 /* BAPMessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */; };
+		F32FB3E219B5E67A00CDB254 /* BAPMessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */; };
 		F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */; };
 		F3998BEA19A2190600FDFD8D /* BAPOrderTreatmenFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE919A2190600FDFD8D /* BAPOrderTreatmenFeed.m */; };
 		F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F39BC1B1199A1E8700C94C58 /* BAPBaseServerManager.m */; };
@@ -64,7 +68,7 @@
 		F3D83D0F198E4910007BAC70 /* BAPBeauticianSearchResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83CFF198E4910007BAC70 /* BAPBeauticianSearchResultsVC.m */; };
 		F3D83D10198E4910007BAC70 /* BAPUserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D01198E4910007BAC70 /* BAPUserProfileVC.m */; };
 		F3D83D11198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D03198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m */; };
-		F3D83D12198E4910007BAC70 /* BAPRegulationsCV.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D05198E4910007BAC70 /* BAPRegulationsCV.m */; };
+		F3D83D12198E4910007BAC70 /* BAPRegulationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D05198E4910007BAC70 /* BAPRegulationsVC.m */; };
 		F3D83D13198E4910007BAC70 /* BAPWalkthroughContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D07198E4910007BAC70 /* BAPWalkthroughContentVC.m */; };
 		F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */; };
 		F3D83D1A198E4946007BAC70 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D18198E4946007BAC70 /* UIView+Layout.m */; };
@@ -87,6 +91,13 @@
 		A03EBD6E4C6C45F59F87F012 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31535E619ADB66600477BD5 /* BAPRegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPRegistrationVC.h; sourceTree = "<group>"; };
 		F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRegistrationVC.m; sourceTree = "<group>"; };
+		F32FB3D819B5D6BF00CDB254 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		F32FB3D919B5D6BF00CDB254 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		F32FB3DB19B5E4F000CDB254 /* BAPMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesVC.h; sourceTree = "<group>"; };
+		F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesVC.m; sourceTree = "<group>"; };
+		F32FB3DE19B5E67A00CDB254 /* BAPMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesCell.h; sourceTree = "<group>"; };
+		F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesCell.m; sourceTree = "<group>"; };
+		F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAPMessagesCell.xib; sourceTree = "<group>"; };
 		F3998BE519A2162D00FDFD8D /* BAPOrderTreatmenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenModel.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.h"; sourceTree = "<group>"; };
 		F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPOrderTreatmenModel.m; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenModel.m"; sourceTree = "<group>"; };
 		F3998BE819A2190600FDFD8D /* BAPOrderTreatmenFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderTreatmenFeed.h; path = "Model/JSON Model/OrderTreatment/BAPOrderTreatmenFeed.h"; sourceTree = "<group>"; };
@@ -177,8 +188,8 @@
 		F3D83D01198E4910007BAC70 /* BAPUserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPUserProfileVC.m; sourceTree = "<group>"; };
 		F3D83D02198E4910007BAC70 /* BAPUserTreatmentHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPUserTreatmentHistoryVC.h; sourceTree = "<group>"; };
 		F3D83D03198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPUserTreatmentHistoryVC.m; sourceTree = "<group>"; };
-		F3D83D04198E4910007BAC70 /* BAPRegulationsCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPRegulationsCV.h; sourceTree = "<group>"; };
-		F3D83D05198E4910007BAC70 /* BAPRegulationsCV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRegulationsCV.m; sourceTree = "<group>"; };
+		F3D83D04198E4910007BAC70 /* BAPRegulationsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPRegulationsVC.h; sourceTree = "<group>"; };
+		F3D83D05198E4910007BAC70 /* BAPRegulationsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRegulationsVC.m; sourceTree = "<group>"; };
 		F3D83D06198E4910007BAC70 /* BAPWalkthroughContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPWalkthroughContentVC.h; sourceTree = "<group>"; };
 		F3D83D07198E4910007BAC70 /* BAPWalkthroughContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPWalkthroughContentVC.m; sourceTree = "<group>"; };
 		F3D83D08198E4910007BAC70 /* BAPWalkthroughVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPWalkthroughVC.h; sourceTree = "<group>"; };
@@ -310,6 +321,8 @@
 		F3AA0540198E28B200079699 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F32FB3D819B5D6BF00CDB254 /* UIBarButtonItem+Badge.h */,
+				F32FB3D919B5D6BF00CDB254 /* UIBarButtonItem+Badge.m */,
 				F3D83D17198E4946007BAC70 /* UIView+Layout.h */,
 				F3D83D18198E4946007BAC70 /* UIView+Layout.m */,
 				F3AA0548198E28B200079699 /* BAPAppDelegate.h */,
@@ -360,8 +373,8 @@
 				F3D83D01198E4910007BAC70 /* BAPUserProfileVC.m */,
 				F3D83D02198E4910007BAC70 /* BAPUserTreatmentHistoryVC.h */,
 				F3D83D03198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m */,
-				F3D83D04198E4910007BAC70 /* BAPRegulationsCV.h */,
-				F3D83D05198E4910007BAC70 /* BAPRegulationsCV.m */,
+				F3D83D04198E4910007BAC70 /* BAPRegulationsVC.h */,
+				F3D83D05198E4910007BAC70 /* BAPRegulationsVC.m */,
 				F3D83D06198E4910007BAC70 /* BAPWalkthroughContentVC.h */,
 				F3D83D07198E4910007BAC70 /* BAPWalkthroughContentVC.m */,
 				F3D83D08198E4910007BAC70 /* BAPWalkthroughVC.h */,
@@ -370,6 +383,8 @@
 				F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */,
 				F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */,
 				F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */,
+				F32FB3DB19B5E4F000CDB254 /* BAPMessagesVC.h */,
+				F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -459,6 +474,9 @@
 				F3D83CC6198E487F007BAC70 /* BAPTreatmentHistoryCell.h */,
 				F3D83CC7198E487F007BAC70 /* BAPTreatmentHistoryCell.m */,
 				F3D83CC8198E487F007BAC70 /* BAPTreatmentHistoryCell.xib */,
+				F32FB3DE19B5E67A00CDB254 /* BAPMessagesCell.h */,
+				F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */,
+				F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -559,6 +577,7 @@
 				F3D83CE2198E48A1007BAC70 /* BAPForHowSelectionV.xib in Resources */,
 				F3D83CE4198E48A1007BAC70 /* BAPWhenSelectionV.xib in Resources */,
 				F3D83CE6198E48A1007BAC70 /* BAPLocationSelectionV.xib in Resources */,
+				F32FB3E219B5E67A00CDB254 /* BAPMessagesCell.xib in Resources */,
 				F3D83CBF198E4847007BAC70 /* Main.storyboard in Resources */,
 				F3D83CCE198E487F007BAC70 /* BAPTreatmentHistoryCell.xib in Resources */,
 				F3D83CEC198E48A1007BAC70 /* BAPMenuV.xib in Resources */,
@@ -634,6 +653,7 @@
 				F3D83CE7198E48A1007BAC70 /* BAPCommentsV.m in Sources */,
 				F3D83CB9198E47F7007BAC70 /* BAPMapViewAnnotation.m in Sources */,
 				F3D83CE1198E48A1007BAC70 /* BAPForHowSelectionV.m in Sources */,
+				F32FB3DD19B5E4F000CDB254 /* BAPMessagesVC.m in Sources */,
 				F3B11A9B19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m in Sources */,
 				F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */,
 				F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */,
@@ -641,7 +661,7 @@
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,
 				F3D83D0D198E4910007BAC70 /* BAPBeauticianVC.m in Sources */,
-				F3D83D12198E4910007BAC70 /* BAPRegulationsCV.m in Sources */,
+				F3D83D12198E4910007BAC70 /* BAPRegulationsVC.m in Sources */,
 				F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */,
 				F3D83D0F198E4910007BAC70 /* BAPBeauticianSearchResultsVC.m in Sources */,
 				F3D83D0E198E4910007BAC70 /* BAPBeauticianSearchVC.m in Sources */,
@@ -650,10 +670,12 @@
 				F3D83CE9198E48A1007BAC70 /* BAPDateSelectionV.m in Sources */,
 				F3D83D0B198E4910007BAC70 /* BAPTreatmentVC.m in Sources */,
 				F3D83CE3198E48A1007BAC70 /* BAPWhenSelectionV.m in Sources */,
+				F32FB3DA19B5D6BF00CDB254 /* UIBarButtonItem+Badge.m in Sources */,
 				F3D83CA2198E4781007BAC70 /* BAPBeauticianModel.m in Sources */,
 				F3D83D11198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m in Sources */,
 				F3D83D0A198E4910007BAC70 /* BAPReservationVC.m in Sources */,
 				F3D83D13198E4910007BAC70 /* BAPWalkthroughContentVC.m in Sources */,
+				F32FB3E119B5E67A00CDB254 /* BAPMessagesCell.m in Sources */,
 				F39BC1BC199A254E00C94C58 /* BAPBeauticianLocationModel.m in Sources */,
 				F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */,
 				F3F2E17519A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m in Sources */,

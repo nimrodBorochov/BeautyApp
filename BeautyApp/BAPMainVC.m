@@ -15,7 +15,7 @@
 #import "UIView+Layout.h"
 #import "BAPUserProfileVC.h"
 #import "BAPUserTreatmentHistoryVC.h"
-#import "BAPRegulationsCV.h"
+#import "BAPRegulationsVC.h"
 #import "BAPWalkthroughVC.h"
 #import "BAPReservationVC.h"
 #import "BAPBeauticiansLocationFeed.h"
@@ -25,6 +25,8 @@
 #import "BAPBeauticiansArrayFeed.h"
 #import "BAPBeauticianModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIBarButtonItem+Badge.h"
+#import "BAPMessagesVC.h"
 
 
 static NSInteger const SPACER_ITEM_WITH = 22;
@@ -116,6 +118,9 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     
     // Create the custom bar botton item
     UIBarButtonItem *postsBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:postsButton] ;
+    
+    /// TODO: connect to real number (how many massages user have)
+    postsBarButtonItem.badgeValue = @"2";
     
     /// Custom Beautician Search Button
     // Set the frame with image
@@ -252,7 +257,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         
         if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)))
         {
-            [self.mArrIdsOfbeauticiansOnScreen addObject:beauticianLocationModel.strBeauticianLocationID];
+            [self.mArrIdsOfbeauticiansOnScreen addObject:beauticianLocationModel.strBeauticianID];
         }
     }
 }
@@ -315,7 +320,11 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 - (void)postsButtonTapped
 {
+    // Creating view controller to show
+    BAPMessagesVC* messagesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesVC"];
     
+    // Push to BACRegulationsCV
+    [self.navigationController pushViewController:messagesVC animated:YES];
 }
 
 - (void)beauticianSearchTapped
@@ -383,7 +392,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
             // Show the table with animation
             [UIView animateWithDuration:1 animations:^{
                 
-                    self.constraintHeightOfTable.constant = 460;
+                self.constraintHeightOfTable.constant = 460;
                 
                 
                 [self.view layoutIfNeeded];
@@ -398,6 +407,17 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     }
 }
 
+- (void)pushToBeauticianVCWithBeauticianModel:(BAPBeauticianModel *)beauticianModel
+{
+    // Creating view controller to show
+    BAPBeauticianVC* beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
+    
+    // Set view controller property
+    beauticianVC.beauticianModel = beauticianModel;
+    
+    // Push to MSLEmployeeProfileVC
+    [self.navigationController pushViewController:beauticianVC animated:YES];
+}
 #pragma mark - MapView delegate methods
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -417,8 +437,8 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         //else{ customPinView.image = [UIImage imageNamed:@"mySomeOtherImage.png"];
         ///TODO chack with adak
         customPinView.animatesDrop = NO;
-        customPinView.canShowCallout = NO;
-        
+        customPinView.canShowCallout = YES;
+        customPinView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         return customPinView;
         
     } else {
@@ -429,21 +449,44 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     return pinView;
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    BAPMapViewAnnotation* mapViewAnnotation = (BAPMapViewAnnotation *)view.annotation;
+    
+    NSArray* arrBeauticanId = [NSArray arrayWithObject:mapViewAnnotation.identity];
+    
+    BAPGetBeauticansArrayForPostBeauticansIdsArray* getBeauticansArrayForPostBeauticansIdsArray = [BAPGetBeauticansArrayForPostBeauticansIdsArray new];
+    
+    [getBeauticansArrayForPostBeauticansIdsArray getBeauticiansArrayForBeauticansIdsArray:arrBeauticanId successBlock:^(id jsonObject) {
+        
+        self.beauticiansArrayFeed = jsonObject;
+        
+        [self pushToBeauticianVCWithBeauticianModel:self.beauticiansArrayFeed.arrBeauticiansModel.firstObject];
+        
+    } failerBlock:^(NSError *error) {
+        
+        NSLog(@"error loading jason: %@", error);
+        
+    }];
+    
+    
+}
+
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    BAPMapViewAnnotation *mapViewAnnotation = (BAPMapViewAnnotation *)view.annotation;
-    
-    BAPBeauticianVC *beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
-    
-    //    for (BAPBusiness* business in self.mArrBusinessOnScreen)
-    //    {
-    //        /// TODO: change to id
-    //        if ([business.strBusinessName isEqualToString:mapViewAnnotation.title]) {
-    //            beauticianVC.business = business;
-    //        }
-    //    }
-    
-    [self.navigationController pushViewController:beauticianVC animated:YES];
+    //    BAPMapViewAnnotation *mapViewAnnotation = (BAPMapViewAnnotation *)view.annotation;
+    //
+    //    BAPBeauticianVC *beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
+    //
+    //    //    for (BAPBusiness* business in self.mArrBusinessOnScreen)
+    //    //    {
+    //    //        /// TODO: change to id
+    //    //        if ([business.strBusinessName isEqualToString:mapViewAnnotation.title]) {
+    //    //            beauticianVC.business = business;
+    //    //        }
+    //    //    }
+    //
+    //    [self.navigationController pushViewController:beauticianVC animated:YES];
     
 }
 
@@ -471,7 +514,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
         coord.latitude = beauticianLocationModel.dblBeauticianLocationLatitude;
         coord.longitude = beauticianLocationModel.dblBeauticianLocationLongitude;
         
-        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc] initWithIdentity:beauticianLocationModel.strBeauticianLocationID AndCoordinate:coord];
+        BAPMapViewAnnotation *annotation = [[BAPMapViewAnnotation alloc]initWithTitle:beauticianLocationModel.strBeauticianName Identity:beauticianLocationModel.strBeauticianID AndCoordinate:coord];
         
         [annotations addObject:annotation];
     }
@@ -501,31 +544,26 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     
     //
     NSString* strBusinessName = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).strBeauticianName;
-
+    
     NSString* strBusinessCity = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianAdressModel.strBeauticianCity;
     
     NSString* strBusinessStreet = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianAdressModel.strBeauticianStreet;
     
     int numberOfstrRaters = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianRatingModel.intRaters;
-
+    
     float numberBusinessRateAverage = ((BAPBeauticianModel *)self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]).beauticianRatingModel.fltRate;
     
     [businessOnMapCell setUpCellWithBusinesName:strBusinessName city:strBusinessCity street:strBusinessStreet andRating:numberBusinessRateAverage andRaters:numberOfstrRaters];
-
+    
     return businessOnMapCell;
 }
 
 // Handel selection at row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Creating view controller to show
-    BAPBeauticianVC* beauticianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianVC"];
     
-    // Set view controller property
-    beauticianVC.beauticianModel = self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row];
+    [self pushToBeauticianVCWithBeauticianModel:self.beauticiansArrayFeed.arrBeauticiansModel[indexPath.row]];
     
-    // Push to MSLEmployeeProfileVC
-    [self.navigationController pushViewController:beauticianVC animated:YES];
 }
 
 #pragma mark - Menu Appearance
@@ -600,7 +638,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 - (void)userTappdRegulations
 {
     // Creating view controller to show
-    BAPRegulationsCV* regulationsCV = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPRegulationsCV"];
+    BAPRegulationsVC* regulationsCV = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPRegulationsCV"];
     
     // Push to BACRegulationsCV
     [self.navigationController pushViewController:regulationsCV animated:YES];
