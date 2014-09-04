@@ -10,7 +10,7 @@
 		CA1696F0D0CF4F6DAE6BBA36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03EBD6E4C6C45F59F87F012 /* libPods.a */; };
 		F31535E819ADB66600477BD5 /* BAPRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */; };
 		F32FB3DA19B5D6BF00CDB254 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3D919B5D6BF00CDB254 /* UIBarButtonItem+Badge.m */; };
-		F32FB3DD19B5E4F000CDB254 /* BAPMessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */; };
+		F32FB3DD19B5E4F000CDB254 /* BAPMessagesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DC19B5E4F000CDB254 /* BAPMessagesListVC.m */; };
 		F32FB3E119B5E67A00CDB254 /* BAPMessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */; };
 		F32FB3E219B5E67A00CDB254 /* BAPMessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */; };
 		F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3998BE619A2162D00FDFD8D /* BAPOrderTreatmenModel.m */; };
@@ -35,6 +35,7 @@
 		F3AA056B198E295300079699 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0569198E295300079699 /* MapKit.framework */; };
 		F3AA171619AF6AFE00577310 /* BAPVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */; };
 		F3B11A9B19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B11A9A19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m */; };
+		F3D4CDBA19B702F800E5787D /* BAPOrderNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D4CDB919B702F800E5787D /* BAPOrderNotificationModel.m */; };
 		F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */; };
 		F3D83CA1198E4781007BAC70 /* BAPBeauticianRatingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9D198E4781007BAC70 /* BAPBeauticianRatingModel.m */; };
 		F3D83CA2198E4781007BAC70 /* BAPBeauticianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83C9F198E4781007BAC70 /* BAPBeauticianModel.m */; };
@@ -72,6 +73,7 @@
 		F3D83D13198E4910007BAC70 /* BAPWalkthroughContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D07198E4910007BAC70 /* BAPWalkthroughContentVC.m */; };
 		F3D83D14198E4910007BAC70 /* BAPWalkthroughVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */; };
 		F3D83D1A198E4946007BAC70 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D83D18198E4946007BAC70 /* UIView+Layout.m */; };
+		F3EA726F19B8814000016E83 /* BAPMessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EA726E19B8814000016E83 /* BAPMessagesVC.m */; };
 		F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E17119A1E32D00B8106F /* BAPBeauticianFeed.m */; };
 		F3F2E17519A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */; };
 /* End PBXBuildFile section */
@@ -93,8 +95,8 @@
 		F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPRegistrationVC.m; sourceTree = "<group>"; };
 		F32FB3D819B5D6BF00CDB254 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		F32FB3D919B5D6BF00CDB254 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
-		F32FB3DB19B5E4F000CDB254 /* BAPMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesVC.h; sourceTree = "<group>"; };
-		F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesVC.m; sourceTree = "<group>"; };
+		F32FB3DB19B5E4F000CDB254 /* BAPMessagesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesListVC.h; sourceTree = "<group>"; };
+		F32FB3DC19B5E4F000CDB254 /* BAPMessagesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesListVC.m; sourceTree = "<group>"; };
 		F32FB3DE19B5E67A00CDB254 /* BAPMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesCell.h; sourceTree = "<group>"; };
 		F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesCell.m; sourceTree = "<group>"; };
 		F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAPMessagesCell.xib; sourceTree = "<group>"; };
@@ -132,6 +134,8 @@
 		F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPVerificationVC.m; sourceTree = "<group>"; };
 		F3B11A9919B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetBeauticansArrayForPostBeauticansIdsArray.h; path = Server/BAPGetBeauticansArrayForPostBeauticansIdsArray.h; sourceTree = "<group>"; };
 		F3B11A9A19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPGetBeauticansArrayForPostBeauticansIdsArray.m; path = Server/BAPGetBeauticansArrayForPostBeauticansIdsArray.m; sourceTree = "<group>"; };
+		F3D4CDB819B702F800E5787D /* BAPOrderNotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPOrderNotificationModel.h; path = "Model/JSON Model/OrderNotification/BAPOrderNotificationModel.h"; sourceTree = "<group>"; };
+		F3D4CDB919B702F800E5787D /* BAPOrderNotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPOrderNotificationModel.m; path = "Model/JSON Model/OrderNotification/BAPOrderNotificationModel.m"; sourceTree = "<group>"; };
 		F3D83C9A198E4781007BAC70 /* BAPBeauticianAdressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPBeauticianAdressModel.h; sourceTree = "<group>"; };
 		F3D83C9B198E4781007BAC70 /* BAPBeauticianAdressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPBeauticianAdressModel.m; sourceTree = "<group>"; };
 		F3D83C9C198E4781007BAC70 /* BAPBeauticianRatingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPBeauticianRatingModel.h; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 		F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPWalkthroughVC.m; sourceTree = "<group>"; };
 		F3D83D17198E4946007BAC70 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		F3D83D18198E4946007BAC70 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		F3EA726D19B8814000016E83 /* BAPMessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesVC.h; sourceTree = "<group>"; };
+		F3EA726E19B8814000016E83 /* BAPMessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesVC.m; sourceTree = "<group>"; };
 		F3F2E17019A1E32D00B8106F /* BAPBeauticianFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticianFeed.h; path = "Model/JSON Model/Beautician/BAPBeauticianFeed.h"; sourceTree = "<group>"; };
 		F3F2E17119A1E32D00B8106F /* BAPBeauticianFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPBeauticianFeed.m; path = "Model/JSON Model/Beautician/BAPBeauticianFeed.m"; sourceTree = "<group>"; };
 		F3F2E17319A1E5DE00B8106F /* BAPBeauticiansArrayFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPBeauticiansArrayFeed.h; path = "Model/JSON Model/Beautician/BAPBeauticiansArrayFeed.h"; sourceTree = "<group>"; };
@@ -383,8 +389,10 @@
 				F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */,
 				F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */,
 				F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */,
-				F32FB3DB19B5E4F000CDB254 /* BAPMessagesVC.h */,
-				F32FB3DC19B5E4F000CDB254 /* BAPMessagesVC.m */,
+				F32FB3DB19B5E4F000CDB254 /* BAPMessagesListVC.h */,
+				F32FB3DC19B5E4F000CDB254 /* BAPMessagesListVC.m */,
+				F3EA726D19B8814000016E83 /* BAPMessagesVC.h */,
+				F3EA726E19B8814000016E83 /* BAPMessagesVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 		F3AA056F198E456500079699 /* JSON Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3D4CDB719B700E500E5787D /* OrderNotification */,
 				F3998BE419A215F600FDFD8D /* OrderTreatment */,
 				F39BC1B6199A247E00C94C58 /* BeauticiansLocation */,
 				F3AA0570198E458300079699 /* Beautician */,
@@ -435,6 +444,15 @@
 				F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */,
 			);
 			name = Beautician;
+			sourceTree = "<group>";
+		};
+		F3D4CDB719B700E500E5787D /* OrderNotification */ = {
+			isa = PBXGroup;
+			children = (
+				F3D4CDB819B702F800E5787D /* BAPOrderNotificationModel.h */,
+				F3D4CDB919B702F800E5787D /* BAPOrderNotificationModel.m */,
+			);
+			name = OrderNotification;
 			sourceTree = "<group>";
 		};
 		F3D83CBC198E480F007BAC70 /* SubView */ = {
@@ -653,11 +671,13 @@
 				F3D83CE7198E48A1007BAC70 /* BAPCommentsV.m in Sources */,
 				F3D83CB9198E47F7007BAC70 /* BAPMapViewAnnotation.m in Sources */,
 				F3D83CE1198E48A1007BAC70 /* BAPForHowSelectionV.m in Sources */,
-				F32FB3DD19B5E4F000CDB254 /* BAPMessagesVC.m in Sources */,
+				F32FB3DD19B5E4F000CDB254 /* BAPMessagesListVC.m in Sources */,
 				F3B11A9B19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m in Sources */,
 				F3998BE719A2162D00FDFD8D /* BAPOrderTreatmenModel.m in Sources */,
 				F3F2E17219A1E32D00B8106F /* BAPBeauticianFeed.m in Sources */,
 				F3D83CCB198E487F007BAC70 /* BAPTreatmentCell.m in Sources */,
+				F3D4CDBA19B702F800E5787D /* BAPOrderNotificationModel.m in Sources */,
+				F3EA726F19B8814000016E83 /* BAPMessagesVC.m in Sources */,
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,
 				F3D83D0D198E4910007BAC70 /* BAPBeauticianVC.m in Sources */,

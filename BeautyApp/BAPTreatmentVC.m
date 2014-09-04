@@ -42,11 +42,11 @@ static NSString* const SELECT_TREATMENT_HEB = @"בחר טיפול";
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    BAPTreatmentCell* treatmentTableCell = [tableView dequeueReusableCellWithIdentifier:@"BACTreatmentTVC"];
+    BAPTreatmentCell* treatmentTableCell = [tableView dequeueReusableCellWithIdentifier:@"BAPTreatmentCell"];
     
     if (!treatmentTableCell)
     {
-        treatmentTableCell = [[NSBundle mainBundle] loadNibNamed:@"BACTreatmentTVC" owner:self options:nil][0];
+        treatmentTableCell = [[NSBundle mainBundle] loadNibNamed:@"BAPTreatmentCell" owner:self options:nil][0];
     }
     
     treatmentTableCell.delegate = self;
@@ -57,11 +57,6 @@ static NSString* const SELECT_TREATMENT_HEB = @"בחר טיפול";
     return treatmentTableCell;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)didTappedTreatmentInfoWithTitle:(NSString *)title
 {

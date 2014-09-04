@@ -64,6 +64,12 @@
                     <constraint firstItem="ptr-RQ-wEc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="tEg-U2-7WA"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="ivBeauticianImage" destination="eb3-79-zwU" id="TU7-2t-AZT"/>
+                <outlet property="lblBeauticianFullAdress" destination="BY4-yg-SI3" id="gI2-rT-oA5"/>
+                <outlet property="lblDateOfMessages" destination="ptr-RQ-wEc" id="yaW-ZV-A4p"/>
+                <outlet property="lblbeauticianName" destination="pjP-Hs-xcd" id="v6x-BZ-ke4"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

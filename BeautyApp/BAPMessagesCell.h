@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BAPOrderNotificationModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BAPMessagesCell : UITableViewCell
+
+- (void)setupCellWithOrderNotification:(BAPOrderNotificationModel *)orderNotification;
+
+@property (weak, nonatomic) IBOutlet UIImageView *ivBeauticianImage;
 
 @end

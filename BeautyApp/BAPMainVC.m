@@ -26,7 +26,7 @@
 #import "BAPBeauticianModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIBarButtonItem+Badge.h"
-#import "BAPMessagesVC.h"
+#import "BAPMessagesListVC.h"
 
 
 static NSInteger const SPACER_ITEM_WITH = 22;
@@ -321,7 +321,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 - (void)postsButtonTapped
 {
     // Creating view controller to show
-    BAPMessagesVC* messagesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesVC"];
+    BAPMessagesListVC* messagesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesVC"];
     
     // Push to BACRegulationsCV
     [self.navigationController pushViewController:messagesVC animated:YES];
