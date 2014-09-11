@@ -20,6 +20,8 @@
 @property (       nonatomic) int intONBeauticianRatersAmount;
 @property (       nonatomic) float fltONBeauticianRateAvrg;
 @property (       nonatomic) NSTimeInterval timeIntervalGetOrder;
-@property (nonatomic) int intONPrice;
+@property (strong, nonatomic) NSString* strONTreatmentLocation;
+@property (strong, nonatomic) NSString* strONTreatmentNots;
+@property (       nonatomic) int intONPrice;
 
 @end

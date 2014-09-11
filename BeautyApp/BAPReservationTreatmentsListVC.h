@@ -9,11 +9,11 @@
 #import "BAPBaseReservationVC.h"
 
 @protocol TreatmentVCDelegate <NSObject>
-- (void)didTappedSubmitTreatments:(NSString *)treatments;
+- (void)didTappedSubmitTreatmentsString:(NSString *)strTreatments treatmentMArray:(NSMutableArray *)mArrTreatment;
 
 @end
 
-@interface BAPTreatmentVC : BAPBaseReservationVC
+@interface BAPReservationTreatmentsListVC : BAPBaseReservationVC
 
 @property (nonatomic, assign)id<TreatmentVCDelegate> delegate;
 

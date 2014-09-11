@@ -24,6 +24,8 @@
         _intONBeauticianRatersAmount = 3;
         _fltONBeauticianRateAvrg = 4;
         _timeIntervalGetOrder =  1409748358;
+        _strONTreatmentLocation = @"אצל הקוסמטיקאית";
+        _strONTreatmentNots = @"";
         _intONPrice = 250;        
     }
     return self;

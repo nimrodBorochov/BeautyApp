@@ -10,10 +10,17 @@
 #import "BAPForHowSelectionV.h"
 #import "BAPWhenSelectionV.h"
 #import "BAPLocationSelectionV.h"
-#import "BAPTreatmentVC.h"
+#import "BAPReservationTreatmentsListVC.h"
 #import "BAPDateSelectionV.h"
+#import "BAPGroupPeopleAmountV.h"
+#import "BAPGetOrderIdByPostReservation.h"
+#import "BAPOrderTreatmenFeed.h"
 
-@interface BAPReservationVC ()<UIGestureRecognizerDelegate, ForHowSelectionViewDelegate, WhenSelectionViewDelegate, LocationSelectionViewDelegate, TreatmentVCDelegate, DateSelectionDelegate>
+static NSString *const FOR_HOW_HEB = @"עבור";
+static NSString *const FOR_ME_HEB = @"עבורי";
+static NSString *const GROUP_HEB = @"קבוצה";
+
+@interface BAPReservationVC ()<UIGestureRecognizerDelegate, ForHowSelectionViewDelegate, WhenSelectionViewDelegate, LocationSelectionViewDelegate, TreatmentVCDelegate, DateSelectionDelegate, GroupPeopleAmountDelegate>
 
 // Outlets Properties
 @property (weak, nonatomic) IBOutlet UIView *vHow;
@@ -30,12 +37,17 @@
 
 // Private Property
 @property (strong, nonatomic) NSString* strSelectedVeiw;
+@property (strong, nonatomic) NSArray* arrTreatments;
+@property (strong, nonatomic) NSDate* dateTreatment;
+
+@property (strong, nonatomic) BAPOrderTreatmenFeed* OrderTreatmenFeed;
 
 // View's Properties
 @property (strong, nonatomic) BAPForHowSelectionV* forHowSelectionV;
 @property (strong, nonatomic) BAPWhenSelectionV* whenSelectionV;
 @property (strong, nonatomic) BAPLocationSelectionV* locationSelectionV;
 @property (strong, nonatomic) BAPDateSelectionV* dateSelectionV;
+@property (strong, nonatomic) BAPGroupPeopleAmountV* groupPeopleAmountV;
 
 @end
 
@@ -56,8 +68,37 @@
 {
     [self dimerViewAction];
     
+    NSString* strSelection;
+    NSString *prefix = nil;
+    
+    if ([self.lblHow.text length] >= 5)
+    {
+        prefix = [self.lblHow.text substringToIndex:5];
+    }
+    else
+    {
+        prefix = self.lblHow.text;
+    }
+    
+    if ([self.lblHow.text isEqualToString:FOR_HOW_HEB])
+    {
+        strSelection = FOR_HOW_HEB;
+    }
+    else if ([self.lblHow.text isEqualToString:FOR_ME_HEB])
+    {
+        strSelection = FOR_ME_HEB;
+    }
+    else if ([prefix isEqualToString:GROUP_HEB])
+    {
+        strSelection = GROUP_HEB;
+    }
+    else
+    {
+        strSelection = OTHER_HEB;
+    }
+    
     // Init BAForHowSelectionV with title
-    self.forHowSelectionV = [[BAPForHowSelectionV alloc]initWithFrame:CGRectZero Selection:self.lblHow.text];
+    self.forHowSelectionV = [[BAPForHowSelectionV alloc]initWithFrame:CGRectZero Selection:strSelection];
     
     // Set subview delegate as self
     self.forHowSelectionV.delegate = self;
@@ -100,7 +141,7 @@
 - (void)treatmentViewTapped
 {
     
-    BAPTreatmentVC* treatmentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPTreatmentVC"];
+    BAPReservationTreatmentsListVC* treatmentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPReservationTreatmentsListVC"];
     
     treatmentVC.delegate = self;
     
@@ -138,11 +179,47 @@
 
 - (void)invitationViewTapped
 {
-
+    // Creates Variable to chek if there is a text to search
+    NSString *textValueForHow = [self.lblHow.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *textValueWhen = [self.lblWhen.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *textValueTreatment = [self.lblTreatment.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *textValueLocation = [self.lblLocation.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if ([textValueForHow length] == 0 ||  [textValueWhen length] == 0 ||  [textValueTreatment length] == 0 ||  [textValueLocation length] == 0)
+    {
+        [self showAlartWithTitle:@"חסר מידע"];
+    }
+    else
+    {
+        BAPGetOrderIdByPostReservation* getOrderIdByPostReservation = [BAPGetOrderIdByPostReservation new];
+        
+        self.OrderTreatmenFeed = [BAPOrderTreatmenFeed new];
+        
+        
+        ///TODO: Uid and treatmentCode
+        [getOrderIdByPostReservation getOrderIdForUserId:@"Bo&^rK33o" reservationFor:self.lblHow.text reservationDate:[self.dateTreatment timeIntervalSince1970] reservationLocation:self.lblLocation.text reservationComments:self.lblcomments.text reservationTreatments:self.arrTreatments successBlock:^(id jsonObject) {
+            
+            self.OrderTreatmenFeed = jsonObject;
+            
+            self.reservationOn = YES;
+            
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            
+        } failerBlock:^(NSError *error) {
+            
+            NSLog(@"Error getjson:%@", error);
+            
+        }];
+        
+    }
+    
 }
 
-#pragma mark - Views deleget methods
-- (void)userSelecteForHowOption:(NSString *)option
+#pragma mark - SubViews deleget methods
+
+// How view
+- (void)userSelecteForMeHowOption:(NSString *)option
 {
     [self closeView];
     
@@ -151,11 +228,28 @@
     self.vHow.backgroundColor = [UIColor greenColor];
 }
 
+-(void)userSelecteForGroupHowOption
+{
+    self.groupPeopleAmountV = [[BAPGroupPeopleAmountV alloc]initWithFrame:CGRectZero];
+    
+    self.groupPeopleAmountV.delegate = self;
+    
+    [self addPropertiesToView:self.groupPeopleAmountV];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        self.groupPeopleAmountV.alpha = 1;
+        self.dimView.alpha = 0.5;
+        
+    }];
+}
+
 - (void)userSelecteOtherHowOption
 {
     [self openCommentViewWithTitle:OTHER_HEB];
 }
 
+// When view
 - (void)userSelectedWhenOption:(NSString *)option
 {
     [self closeView];
@@ -165,6 +259,41 @@
     self.vWhen.backgroundColor = [UIColor greenColor];
 }
 
+- (void)userSelectedOtherWhenOption
+{
+    self.dateSelectionV = [[BAPDateSelectionV alloc]initWithFrame:CGRectZero];
+    
+    self.dateSelectionV.delegate = self;
+    
+    [self addPropertiesToView:self.dateSelectionV];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        self.dateSelectionV.alpha = 1;
+        self.dimView.alpha = 0.5;
+        
+    }];
+}
+
+// Tretment view
+- (void)didTappedSubmitTreatmentsString:(NSString *)strTreatments treatmentMArray:(NSMutableArray *)mArrTreatment
+{
+    self.lblTreatment.text = strTreatments;
+    self.vTreatment.backgroundColor = [UIColor greenColor];
+    self.arrTreatments = [NSArray arrayWithArray:mArrTreatment];
+}
+
+// Loction view
+- (void)userSelectLoctionOption:(NSString *)option
+{
+    [self closeView];
+    
+    self.lblLocation.text = option;
+    
+    self.vLocation.backgroundColor = [UIColor greenColor];
+}
+
+// Comment View
 - (void)userBeginEditing
 {
     [UIView animateWithDuration:0.5 animations:^{
@@ -174,13 +303,9 @@
     
 }
 
-- (void)userSelectLoctionOption:(NSString *)option
+- (void)userTappedReturnBtn
 {
     [self closeView];
-    
-    self.lblLocation.text = option;
-    
-    self.vLocation.backgroundColor = [UIColor greenColor];
 }
 
 - (void)userTappedSubmitComment:(NSString *)comment
@@ -213,41 +338,23 @@
     }
 }
 
-- (void)userTappedReturnBtn
+// Group Amount view
+-(void)userSelectGroupPeopleAmount:(NSString *)amount
 {
     [self closeView];
+    self.lblHow.text = amount;
+    self.vHow.backgroundColor = [UIColor greenColor];
 }
 
-- (void)didTappedSubmitTreatments:(NSString *)treatments
-{
-    self.lblTreatment.text = treatments;
-    self.vTreatment.backgroundColor = [UIColor greenColor];
-}
-
-- (void)userSelectedOtherWhenOption
-{
-    self.dateSelectionV = [[BAPDateSelectionV alloc]initWithFrame:CGRectZero];
-    
-    self.dateSelectionV.delegate = self;
-    
-    [self addPropertiesToView:self.dateSelectionV];
-    
-//    self.strSelectedVeiw = DATE;
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        self.dateSelectionV.alpha = 1;
-        self.dimView.alpha = 0.5;
-        
-    }];
-}
-
-- (void)userTappedSubmitDate:(NSString *)date
+// When selection view
+- (void)userTappedSubmitDateString:(NSString *)StrDate date:(NSDate *)date
 {
     [self closeView];
-    self.lblWhen.text = date;
+    self.lblWhen.text = StrDate;
     self.vWhen.backgroundColor = [UIColor greenColor];
+    self.dateTreatment = date;
 }
+
 
 #pragma mark - Private methods
 
@@ -308,7 +415,10 @@
         self.locationSelectionV.alpha = 0;
         self.commentsV.alpha = 0;
         self.dateSelectionV.alpha = 0;
+        self.groupPeopleAmountV.alpha = 0;
+        
         self.dimView.alpha = 0;
+        
         
         
     } completion:^(BOOL finished) {
@@ -318,6 +428,7 @@
         [self.locationSelectionV removeFromSuperview];
         [self.commentsV removeFromSuperview];
         [self.dateSelectionV removeFromSuperview];
+        [self.groupPeopleAmountV removeFromSuperview];
         [self.dimView removeFromSuperview];
     }];
 }

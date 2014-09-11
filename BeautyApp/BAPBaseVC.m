@@ -22,6 +22,14 @@
 }
 
 
+// simple alart view
+- (void)showAlartWithTitle:(NSString *)title
+{
+    
+    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"" message:title delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [warningAlert show];
+}
 
 
 @end

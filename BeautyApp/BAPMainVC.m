@@ -27,6 +27,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIBarButtonItem+Badge.h"
 #import "BAPMessagesListVC.h"
+#import "BAPPendingTreatmentListVC.h"
 
 
 static NSInteger const SPACER_ITEM_WITH = 22;
@@ -320,11 +321,18 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
 - (void)postsButtonTapped
 {
-    // Creating view controller to show
-    BAPMessagesListVC* messagesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesVC"];
-    
-    // Push to BACRegulationsCV
-    [self.navigationController pushViewController:messagesVC animated:YES];
+    if (!self.dimView.hidden)
+    {
+        [self closeMenuWithAnimation:YES];
+    }
+    else
+    {
+        // Creating view controller to show
+        BAPMessagesListVC* messagesListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesListVC"];
+        
+        // Push to BACRegulationsCV
+        [self.navigationController pushViewController:messagesListVC animated:YES];
+    }
 }
 
 - (void)beauticianSearchTapped
@@ -352,10 +360,10 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     else
     {
         // Creating view controller to show
-        BAPReservationVC* reservationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPReservationVC"];
+        BAPPendingTreatmentListVC* pendingTreatmentListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPPendingTreatmentListVC"];
         
         // Push to BACReservationVC
-        [self.navigationController pushViewController:reservationVC animated:YES];
+        [self.navigationController pushViewController:pendingTreatmentListVC animated:YES];
     }
 }
 
@@ -638,7 +646,7 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 - (void)userTappdRegulations
 {
     // Creating view controller to show
-    BAPRegulationsVC* regulationsCV = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPRegulationsCV"];
+    BAPRegulationsVC* regulationsCV = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPRegulationsVC"];
     
     // Push to BACRegulationsCV
     [self.navigationController pushViewController:regulationsCV animated:YES];

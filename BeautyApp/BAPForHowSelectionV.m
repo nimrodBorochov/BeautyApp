@@ -9,7 +9,7 @@
 #import "BAPForHowSelectionV.h"
 
 static NSString *const FOR_ME_HEB = @"עבורי";
-static NSString *const FOR_GROUP_HEB = @"קבוצה";
+static NSString *const GROUP_HEB = @"קבוצה";
 static NSString *const OTHER_HEB = @"אחר";
 
 @interface BAPForHowSelectionV ()<UIGestureRecognizerDelegate>
@@ -79,7 +79,7 @@ static NSString *const OTHER_HEB = @"אחר";
     {
         self.ivCheckBoxForMe.image = [UIImage imageNamed:@"checkBoxMarked"];
     }
-    else if ([self.strSelectedOption isEqualToString:FOR_GROUP_HEB])
+    else if ([self.strSelectedOption isEqualToString:GROUP_HEB])
     {
         self.ivCheckBoxForGroup.image = [UIImage imageNamed:@"checkBoxMarked"];
     }
@@ -97,7 +97,7 @@ static NSString *const OTHER_HEB = @"אחר";
     self.ivCheckBoxForOther.image = [UIImage imageNamed:@"checkBox"];
     
     // Send delegate event
-    [self.delegate userSelecteForHowOption:FOR_ME_HEB];
+    [self.delegate userSelecteForMeHowOption:FOR_ME_HEB];
     
 }
 
@@ -109,7 +109,7 @@ static NSString *const OTHER_HEB = @"אחר";
     self.ivCheckBoxForOther.image = [UIImage imageNamed:@"checkBox"];
     
     // Send delegate event
-    [self.delegate userSelecteForHowOption:FOR_GROUP_HEB];
+    [self.delegate userSelecteForGroupHowOption];
 }
 
 - (void)ForOtherTapped:(UITapGestureRecognizer *)recognizer

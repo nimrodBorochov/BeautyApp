@@ -10,7 +10,7 @@
 
 @protocol DateSelectionDelegate <NSObject>
 -(void)userTappedReturnBtn;
--(void)userTappedSubmitDate:(NSString*)date;
+-(void)userTappedSubmitDateString:(NSString*)StrDate date:(NSDate *)date;
 
 @end
 

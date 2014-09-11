@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="BAPPendingTreatmentListVC" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="BAPPendingTreatmentListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[NameOfTheBusiness]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-4S-aOd">
+                        <rect key="frame" x="141" y="8" width="171" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="fwr-Yx-LdS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[CityNameStreetName+Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Rne-ud-OO9">
+                        <rect key="frame" x="122" y="35" width="190" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="si3-Wq-yPs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[date and time getting massage]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fWH-Wx-dbR">
+                        <rect key="frame" x="8" y="92" width="151" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="2Zt-zB-J3R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Treatmant Name]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-a2-Rzn">
+                        <rect key="frame" x="90" y="63" width="140" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="vM2-so-Z4Y"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Rne-ud-OO9" secondAttribute="trailing" constant="8" id="7JZ-2D-ily"/>
+                    <constraint firstItem="Kzc-4S-aOd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="A02-HF-2BX"/>
+                    <constraint firstAttribute="trailing" secondItem="Kzc-4S-aOd" secondAttribute="trailing" constant="8" id="CZ2-6r-Xi2"/>
+                    <constraint firstItem="Rne-ud-OO9" firstAttribute="top" secondItem="Kzc-4S-aOd" secondAttribute="bottom" constant="6" id="HEM-wv-xmD"/>
+                    <constraint firstItem="jGv-a2-Rzn" firstAttribute="top" secondItem="Rne-ud-OO9" secondAttribute="bottom" constant="12" id="IXU-em-vul"/>
+                    <constraint firstItem="Kzc-4S-aOd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="LcD-Zu-hq7"/>
+                    <constraint firstItem="fWH-Wx-dbR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="geQ-Fo-dfs"/>
+                    <constraint firstAttribute="bottom" secondItem="fWH-Wx-dbR" secondAttribute="bottom" constant="8" id="maN-bl-ycZ"/>
+                    <constraint firstAttribute="centerX" secondItem="jGv-a2-Rzn" secondAttribute="centerX" id="vba-xc-ExF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblBeauticianFullAdress" destination="Rne-ud-OO9" id="UM7-Qj-1cS"/>
+                <outlet property="lblBeauticianFullName" destination="Kzc-4S-aOd" id="BIU-NT-NBv"/>
+                <outlet property="lblTreatmentDate" destination="fWH-Wx-dbR" id="lCZ-NM-U2F"/>
+                <outlet property="lblTreatmentName" destination="jGv-a2-Rzn" id="8KK-it-OgA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

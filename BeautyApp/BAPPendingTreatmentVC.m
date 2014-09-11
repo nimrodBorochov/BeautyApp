@@ -1,12 +1,12 @@
 //
-//  BAPMessagesVC.m
+//  BAPPendingTreatment.m
 //  BeautyApp
 //
-//  Created by nimrod borochov on 9/4/14.
+//  Created by nimrod borochov on 9/8/14.
 //  Copyright (c) 2014 pictureit. All rights reserved.
 //
 
-#import "BAPMessagesVC.h"
+#import "BAPPendingTreatmentVC.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RateView.h"
 
@@ -14,33 +14,36 @@ static NSString* const RATERS = @"מדרגים";
 static NSString* const TODAY_HEB = @"היום";
 static NSString* const AT_TIME_HEB = @" בשעה  ";
 static NSString* const NIS_HEB = @"ש״ח";
+static NSString* const TREATMENTS_HEB = @"טיפולים";
 
-@interface BAPMessagesVC ()
+@interface BAPPendingTreatmentVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *ivBeauticianImage;
-@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianFullName;
-@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianFullAdress;
+@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianName;
+@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianAdress;
 @property (weak, nonatomic) IBOutlet UIView *vRate;
-@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianRatersAmont;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblTreatmentTime;
-@property (weak, nonatomic) IBOutlet UITextView *tvTreatmentsAsked;
+@property (weak, nonatomic) IBOutlet UILabel *lblBeauticianRatersAmount;
+@property (weak, nonatomic) IBOutlet UILabel *lblTreatmentDateAndTime;
+@property (weak, nonatomic) IBOutlet UITextView *tvAskedTreatment;
 @property (weak, nonatomic) IBOutlet UILabel *lblTreatmentLocation;
-@property (weak, nonatomic) IBOutlet UITextView *tvNots;
+@property (weak, nonatomic) IBOutlet UITextView *tvReservationNots;
 @property (weak, nonatomic) IBOutlet UILabel *lblTreatmentPrice;
 
 @property (nonatomic, strong) RateView* rateView;
 
 @end
 
-@implementation BAPMessagesVC
+@implementation BAPPendingTreatmentVC
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = TREATMENTS_HEB;
     
     [self updateUI];
+    
 }
 
 -(void)updateUI
@@ -50,24 +53,24 @@ static NSString* const NIS_HEB = @"ש״ח";
     
     [self.ivBeauticianImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"imageCell"]];
     
-    self.lblBeauticianFullName.text = self.orderNotificationModel.strONBeauticianName;
+    self.lblBeauticianName.text = self.orderNotificationModel.strONBeauticianName;
     
-    self.lblBeauticianFullAdress.text = self.orderNotificationModel.strONBeauticianFullAdress;
+    self.lblBeauticianAdress.text = self.orderNotificationModel.strONBeauticianFullAdress;
     
     [self setupRateVeiw];
     
     self.rateView.rating  = self.orderNotificationModel.fltONBeauticianRateAvrg;
     
-    self.lblBeauticianRatersAmont.text = [NSString stringWithFormat:@"(%@ %d)", RATERS, self.orderNotificationModel.intONBeauticianRatersAmount];
+    self.lblBeauticianRatersAmount.text = [NSString stringWithFormat:@"(%@ %d)", RATERS, self.orderNotificationModel.intONBeauticianRatersAmount];
     
     [self setupWhenText];
     
     ///TODO: Change to Treatments codes
-    self.tvTreatmentsAsked.text = @"";
+    self.tvAskedTreatment.text = @"";
     
     self.lblTreatmentLocation.text = self.orderNotificationModel.strONTreatmentLocation;
     
-    self.tvNots.text = self.orderNotificationModel.strONTreatmentNots;
+    self.tvReservationNots.text = self.orderNotificationModel.strONTreatmentNots;
     
     self.lblTreatmentPrice.text = [NSString stringWithFormat:@"%d %@", self.orderNotificationModel.intONPrice, NIS_HEB];
 }
@@ -90,8 +93,6 @@ static NSString* const NIS_HEB = @"ש״ח";
     self.rateView.starBorderColor = [UIColor colorWithRed:38/255.0f green:38/255.0f
                                                      blue:38/255.0 alpha:1.0];
 }
-
-
 
 - (void)setupWhenText
 {
@@ -125,10 +126,11 @@ static NSString* const NIS_HEB = @"ש״ח";
     
     strTreatmentTime = [strTreatmentTime stringByAppendingString:strDayDate];
     
-    self.lblTreatmentTime.text = strTreatmentTime;
+    self.lblTreatmentDateAndTime.text = strTreatmentTime;
 }
 
-- (BOOL)isSameDay:(NSDate*)date1 otherDay:(NSDate*)date2 {
+- (BOOL)isSameDay:(NSDate*)date1 otherDay:(NSDate*)date2
+{
     NSCalendar* calendar = [NSCalendar currentCalendar];
     
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
@@ -137,17 +139,17 @@ static NSString* const NIS_HEB = @"ש״ח";
     
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
-    [comp1 year]  == [comp2 year];}
-
-- (IBAction)btnAproveTapped:(id)sender
-{
-    
+    [comp1 year]  == [comp2 year];
 }
 
-- (IBAction)btnRejectedTapped:(id)sender
+- (IBAction)btnDeleteTapped:(id)sender
 {
-    
+    ///TODO: remove from list
 }
 
+- (IBAction)btnPhoneTapped:(id)sender
+{
+    ///TODO: phoneStaffffff
+}
 
 @end

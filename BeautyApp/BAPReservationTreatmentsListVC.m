@@ -6,21 +6,23 @@
 //  Copyright (c) 2014 pictureit. All rights reserved.
 //
 
-#import "BAPTreatmentVC.h"
+#import "BAPReservationTreatmentsListVC.h"
 #import "BAPTreatmentCell.h"
 
 static NSString* const SELECT_TREATMENT_HEB = @"בחר טיפול";
 
-@interface BAPTreatmentVC ()<UITableViewDataSource, UITableViewDelegate, TreatmentCellDelegate>
+@interface BAPReservationTreatmentsListVC ()<UITableViewDataSource, UITableViewDelegate, TreatmentCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableTreatments;
 
 @property (strong, nonatomic) NSArray* arrOfTreatments;
 @property (strong, nonatomic) NSString* strTreatments;
 
+@property (strong, nonatomic) NSMutableArray* mArrTreatmentCell;
+
 @end
 
-@implementation BAPTreatmentVC
+@implementation BAPReservationTreatmentsListVC
 
 - (void)viewDidLoad
 {
@@ -74,7 +76,7 @@ static NSString* const SELECT_TREATMENT_HEB = @"בחר טיפול";
 {
     [self updateStrTreatments];
     
-    [self.delegate didTappedSubmitTreatments:self.strTreatments];
+    [self.delegate didTappedSubmitTreatmentsString:self.strTreatments treatmentMArray:self.mArrTreatmentCell];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -83,22 +85,30 @@ static NSString* const SELECT_TREATMENT_HEB = @"בחר טיפול";
 {
     self.strTreatments = @"";
     
-    NSMutableArray *cells = [[NSMutableArray alloc] init];
+    NSMutableArray* mArrAllTreatmentsCell = [[NSMutableArray alloc] init];
+    
+    self.mArrTreatmentCell = [[NSMutableArray alloc] init];
+    
+    [self.mArrTreatmentCell removeAllObjects];
+    
     for (NSInteger j = 0; j < [self.tableTreatments numberOfSections]; ++j)
     {
         for (NSInteger i = 0; i < [self.tableTreatments numberOfRowsInSection:j]; ++i)
         {
-            [cells addObject:[self.tableTreatments cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
+            [mArrAllTreatmentsCell addObject:[self.tableTreatments cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
         }
     }
     
-    for (BAPTreatmentCell *cell in cells)
+    for (BAPTreatmentCell *treatmentCell in mArrAllTreatmentsCell)
     {
-        if ([cell.lblNumberOfTreatmentInAsk.text intValue] > 0)
+        if ([treatmentCell.lblNumberOfTreatmentInAsk.text intValue] > 0)
         {
-            self.strTreatments = [self.strTreatments stringByAppendingString:[NSString stringWithFormat:@"%@ (%@),  ", cell.lblTitleInTreatmentCell.text , cell.lblNumberOfTreatmentInAsk.text]];
+            self.strTreatments = [self.strTreatments stringByAppendingString:[NSString stringWithFormat:@"%@ (%@),  ", treatmentCell.lblTitleInTreatmentCell.text , treatmentCell.lblNumberOfTreatmentInAsk.text]];
+            
+            [self.mArrTreatmentCell addObject:treatmentCell];
         }
     }
+    
     if ([self.strTreatments length] > 0) {
         self.strTreatments = [self.strTreatments substringToIndex:[self.strTreatments length] - 3];
     }

@@ -10,6 +10,7 @@
 #import "BAPMessagesCell.h"
 #import "BAPOrderNotificationModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "BAPMessagesVC.h"
 
 static NSString* const MESSAGES_HEB = @"הודעות";
 
@@ -57,6 +58,19 @@ static NSString* const MESSAGES_HEB = @"הודעות";
     [messagesCell.ivBeauticianImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"imageCell"]];
     
     return messagesCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Creating view controller to show
+    BAPMessagesVC* messagesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPMessagesVC"];
+    
+    // Set view controller property
+    messagesVC.orderNotificationModel = [BAPOrderNotificationModel new];
+    
+    // Push to MSLEmployeeProfileVC
+    [self.navigationController pushViewController:messagesVC animated:YES];
+    
 }
 
     @end

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="BAPGroupPeopleAmountV" id="ldp-aE-k9C" customClass="BAPGroupPeopleAmountV">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="257"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="קבוצה" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHy-N0-uq1">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.14901961389999999" green="0.56862747670000002" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="wqr-jw-J8v"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcC-QQ-b6L">
+                    <rect key="frame" x="0.0" y="45" width="220" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="כמות אנשים:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBL-aE-MBI">
+                            <rect key="frame" x="56" y="11" width="109" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="NGH-nH-oHB"/>
+                        <constraint firstAttribute="centerX" secondItem="dBL-aE-MBI" secondAttribute="centerX" constant="-0.5" id="ptO-SZ-CRF"/>
+                        <constraint firstAttribute="centerY" secondItem="dBL-aE-MBI" secondAttribute="centerY" constant="0.5" id="ycc-MI-0Nu"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" restorationIdentifier="BAPTeamPepoleAmountV" translatesAutoresizingMaskIntoConstraints="NO" id="fge-EG-wL0" userLabel="ViewPicker" customClass="BAPGroupPeopleAmountV">
+                    <rect key="frame" x="0.0" y="95" width="220" height="162"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqL-2e-7vn">
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="162"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gqL-2e-7vn" firstAttribute="leading" secondItem="fge-EG-wL0" secondAttribute="leading" id="4Je-OK-LAQ"/>
+                        <constraint firstAttribute="trailing" secondItem="gqL-2e-7vn" secondAttribute="trailing" id="5SK-OG-Gn9"/>
+                        <constraint firstAttribute="bottom" secondItem="gqL-2e-7vn" secondAttribute="bottom" id="7tW-Il-H6q"/>
+                        <constraint firstAttribute="bottom" secondItem="gqL-2e-7vn" secondAttribute="bottom" id="es0-F4-eUx"/>
+                        <constraint firstItem="gqL-2e-7vn" firstAttribute="top" secondItem="fge-EG-wL0" secondAttribute="top" id="iOT-G6-nhd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fge-EG-wL0" secondAttribute="trailing" id="3yZ-TH-x51"/>
+                <constraint firstItem="fge-EG-wL0" firstAttribute="leading" secondItem="ldp-aE-k9C" secondAttribute="leading" id="9JT-7U-Pd1"/>
+                <constraint firstItem="bcC-QQ-b6L" firstAttribute="top" secondItem="LHy-N0-uq1" secondAttribute="bottom" id="Gyw-p2-dNJ"/>
+                <constraint firstItem="bcC-QQ-b6L" firstAttribute="leading" secondItem="ldp-aE-k9C" secondAttribute="leading" id="H1l-my-Vvp"/>
+                <constraint firstItem="fge-EG-wL0" firstAttribute="top" secondItem="bcC-QQ-b6L" secondAttribute="bottom" id="H7c-ay-X9X"/>
+                <constraint firstAttribute="trailing" secondItem="bcC-QQ-b6L" secondAttribute="trailing" id="X1r-eZ-6T1"/>
+                <constraint firstItem="LHy-N0-uq1" firstAttribute="top" secondItem="ldp-aE-k9C" secondAttribute="top" id="XP7-f0-NxI"/>
+                <constraint firstItem="LHy-N0-uq1" firstAttribute="leading" secondItem="ldp-aE-k9C" secondAttribute="leading" id="bnO-lh-tRb"/>
+                <constraint firstAttribute="trailing" secondItem="LHy-N0-uq1" secondAttribute="trailing" id="eTW-4R-ySR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="pickerView" destination="gqL-2e-7vn" id="l7U-H7-cIS"/>
+            </connections>
+        </view>
+    </objects>
+</document>

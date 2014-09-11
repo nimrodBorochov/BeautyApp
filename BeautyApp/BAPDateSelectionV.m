@@ -47,7 +47,7 @@
     [dateFormatter setDateFormat:@"dd / MM / yyyy"];
     NSString *strDate = [dateFormatter stringFromDate:self.datePicker.date];
     
-    [self.delegate userTappedSubmitDate:strDate];
+    [self.delegate userTappedSubmitDateString:strDate date:self.datePicker.date];
 }
 
 

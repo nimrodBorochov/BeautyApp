@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol ForHowSelectionViewDelegate <NSObject>
-- (void)userSelecteForHowOption:(NSString *)option;
+- (void)userSelecteForMeHowOption:(NSString *)option;
 - (void)userSelecteOtherHowOption;
+- (void)userSelecteForGroupHowOption;
 @end
 
 @interface BAPForHowSelectionV : UIView
