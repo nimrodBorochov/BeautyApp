@@ -26,7 +26,8 @@ static NSString* const POST_ORDER_METHOD_PATH =@"/postordertreatment";
 {
     BOOL isFirstTreatmentCell = YES;
     NSString* strTreatments = @"[";
-    ///fornow
+    
+    /// TODO: take care about the treatments code, it will be treatment model (codestyle)
     int index = 1;
     for (BAPTreatmentCell* treatmentCell in treatments)
     {
@@ -44,6 +45,26 @@ static NSString* const POST_ORDER_METHOD_PATH =@"/postordertreatment";
     
     // Post string
     NSString* strPost = [NSString stringWithFormat:@"{\"uid\":\"%@\",\"forwho\":\"%@\",\"date\":\"%f\",\"location\":\"%@\",\"comments\":\"%@\",\"treatments\":%@}", uid, forwho, reservationDate, reservationLocation, reservationComments, strTreatments];
+    
+    
+//    NSDictionary *postDic = @{
+//                              @"ids" : beauticansIdsArray ,
+//                              };
+//    NSError *error;
+//    
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDic options:0 error:&error];
+//    
+//    NSString *jsonString = nil;
+//    if (! jsonData) {
+//        NSLog(@"Got an error: %@", error);
+//    } else {
+//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    }
+//    
+//    NSString* urlString = [NSString stringWithFormat:@"%@%@%@", URL_HOST, BASE_PATH, POST_ARRAY_BEAUTICIANS_METHOD_PATH];
+//    
+//    // Set the post metode
+//    [JSONHTTPClient postJSONFromURLWithString:urlString bodyString:jsonString completion:^(id json, JSONModelError *err)
     
     NSString* urlString = [NSString stringWithFormat:@"%@%@%@", URL_HOST, BASE_PATH, POST_ORDER_METHOD_PATH];
     

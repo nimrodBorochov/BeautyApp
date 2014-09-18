@@ -18,30 +18,28 @@ static NSString* const POST_ARRAY_BEAUTICIANS_METHOD_PATH = @"/postarraybeautici
                                     successBlock:(BAPSuccessBlock)successBlock
                                      failerBlock:(BAPFailerBlock)failerBlock
 {
-    NSString* strPost = @"{\"ids\":[";
     
-    bool isFirstId = YES;
     
-    for (NSString* beauticanId in beauticansIdsArray)
-    {
-        if (isFirstId)
-        {
-            strPost = [strPost stringByAppendingString:[NSString stringWithFormat:@"\"%@\"", beauticanId]];
-            
-            isFirstId = NO;
-        }
-        else
-        {
-        strPost = [strPost stringByAppendingString:[NSString stringWithFormat:@",\"%@\"", beauticanId]];
-        }
+//    NSString* strBeauticansIdsArray = [beauticansIdsArray description];
+    
+    NSDictionary *postDic = @{
+                          @"ids" : beauticansIdsArray ,
+                          };
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDic options:0 error:&error];
+    
+    NSString *jsonString = nil;
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
-    
-    strPost = [strPost stringByAppendingString:@"]}"];
-    
+ 
     NSString* urlString = [NSString stringWithFormat:@"%@%@%@", URL_HOST, BASE_PATH, POST_ARRAY_BEAUTICIANS_METHOD_PATH];
     
     // Set the post metode
-    [JSONHTTPClient postJSONFromURLWithString:urlString bodyString:strPost completion:^(id json, JSONModelError *err)
+    [JSONHTTPClient postJSONFromURLWithString:urlString bodyString:jsonString completion:^(id json, JSONModelError *err)
      {
          if (err)
          {
@@ -74,5 +72,7 @@ static NSString* const POST_ARRAY_BEAUTICIANS_METHOD_PATH = @"/postarraybeautici
          }
      }];
 }
+
+
 
 @end

@@ -10,4 +10,17 @@
 
 @implementation BAPBaseServerManager
 
+
+//- (NSDictionary *) makeDictionaryWithSameKey:(NSString *)FromArray:(NSArray *)array
+//{
+//    id objectInstance;
+//    NSUInteger indexKey = 0U;
+//    
+//    NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] init];
+//    for (objectInstance in array)
+//        [mutableDictionary setObject:objectInstance forKey:[NSNumber numberWithUnsignedInt:indexKey++]];
+//    
+//    return (NSDictionary *)[mutableDictionary autorelease];
+//}
+
 @end

@@ -14,7 +14,7 @@
 
 static NSString* const TREATMENTS_HEB = @"טיפולים";
 
-@interface BAPPendingTreatmentListVC ()<UITableViewDataSource, UITableViewDelegate>
+@interface BAPPendingTreatmentListVC ()<UITableViewDataSource, UITableViewDelegate, ReservationDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tablePendingTreatment;
 
 @end
@@ -95,8 +95,15 @@ static NSString* const TREATMENTS_HEB = @"טיפולים";
     // Creating view controller to show
     BAPReservationVC* reservationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPReservationVC"];
    
+    reservationVC.delegate = self;
+    
     // Push to MSLEmployeeProfileVC
        [self.navigationController pushViewController:reservationVC animated:YES];
+}
+
+-(void)userTappedSubmitReservation
+{
+    [self.delegate userDidSubmitReservation];
 }
 
 @end

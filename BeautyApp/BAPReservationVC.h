@@ -8,6 +8,14 @@
 
 #import "BAPBaseReservationVC.h"
 
+@protocol ReservationDelegate <NSObject>
+
+-(void)userTappedSubmitReservation;
+
+@end
+
 @interface BAPReservationVC : BAPBaseReservationVC
+
+@property (nonatomic, assign)id<ReservationDelegate> delegate;
 
 @end

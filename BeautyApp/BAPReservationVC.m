@@ -15,6 +15,7 @@
 #import "BAPGroupPeopleAmountV.h"
 #import "BAPGetOrderIdByPostReservation.h"
 #import "BAPOrderTreatmenFeed.h"
+#import "BAPMainVC.h"
 
 static NSString *const FOR_HOW_HEB = @"עבור";
 static NSString *const FOR_ME_HEB = @"עבורי";
@@ -201,10 +202,11 @@ static NSString *const GROUP_HEB = @"קבוצה";
             
             self.OrderTreatmenFeed = jsonObject;
             
-            self.reservationOn = YES;
+            ///TODO: seve order id
+
+            [self.delegate userTappedSubmitReservation];
             
             [self.navigationController popToRootViewControllerAnimated:YES];
-            
             
         } failerBlock:^(NSError *error) {
             

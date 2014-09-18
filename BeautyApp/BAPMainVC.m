@@ -30,18 +30,21 @@
 #import "BAPPendingTreatmentListVC.h"
 
 
+
 static NSInteger const SPACER_ITEM_WITH = 22;
 static NSInteger const HEIGHT_CONTAINER_MENU = 143;
 static long const MAPVIEW_DIV_FACTOR = 1.4375;
 static NSInteger const MAPVIEW_HEIGHT_4I = 460;
 
-@interface BAPMainVC ()<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, BACMenuDelegate, CLLocationManagerDelegate>
+@interface BAPMainVC ()<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate,  CLLocationManagerDelegate, PendingTreatmentListDelegate, BACMenuDelegate>
 
 // Outlets properties
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableBusinessOnScreen;
 @property (weak, nonatomic) IBOutlet UIView *ContainerMenu;
 @property (weak, nonatomic) IBOutlet UIView *dimView;
+@property (weak, nonatomic) IBOutlet UIView *vPandingReservation;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightMenu;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightOfTable;
@@ -78,7 +81,10 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     [self setupTableDelegate];
     
     [self addGesture];
+    
 }
+
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -300,7 +306,39 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     tapDimview.delegate = self;
 }
 
+- (void)userDidSubmitReservation
+{
+    self.dimView.alpha = 0;
+    self.dimView.hidden = NO;
+    self.vPandingReservation.alpha = 0;
+    self.vPandingReservation.hidden = NO;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.vPandingReservation.alpha = 1;
+        self.dimView.alpha = 0.5;
+        
+    }];
+}
+
 #pragma mark - Actions
+- (IBAction)btnDeleteReservationTapped:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.dimView.alpha = 0;
+        self.vPandingReservation.alpha = 0;
+        
+    } completion:^(BOOL finished) {
+        
+        self.dimView.hidden = YES;
+        self.vPandingReservation.hidden = YES;
+        
+    }];
+    
+    return;
+
+}
 
 - (void)dimViewTapped
 {
@@ -361,6 +399,8 @@ static NSInteger const MAPVIEW_HEIGHT_4I = 460;
     {
         // Creating view controller to show
         BAPPendingTreatmentListVC* pendingTreatmentListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPPendingTreatmentListVC"];
+        
+        pendingTreatmentListVC.delegate = self;
         
         // Push to BACReservationVC
         [self.navigationController pushViewController:pendingTreatmentListVC animated:YES];

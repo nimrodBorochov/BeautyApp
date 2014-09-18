@@ -10,8 +10,6 @@
 
 @interface BAPBaseVC : UIViewController
 
-@property (nonatomic)BOOL reservationOn;
-
 - (void)showAlartWithTitle:(NSString *)title;
 
 @end

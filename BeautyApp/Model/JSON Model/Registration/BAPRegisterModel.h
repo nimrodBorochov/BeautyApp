@@ -1,18 +1,15 @@
 //
-//  BAPVerificationVC.h
+//  BAPRegisterModel.h
 //  BeautyApp
 //
 //  Created by nimrod borochov on 9/18/14.
 //  Copyright (c) 2014 pictureit. All rights reserved.
 //
 
-#import "BAPBaseVC.h"
+#import "JSONModel.h"
 
-@interface BAPVerificationVC : BAPBaseVC
+@interface BAPRegisterModel : JSONModel
 
-/// TODO: REMOVE to app data
 @property (strong, nonatomic) NSString* strUserAppId;
-
-@property (strong, nonatomic) NSString* strUserPhoneNimber;
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "BAPBaseVC.h"
+#import "BAPBeauticiansArrayFeed.h"
 
 @interface BAPBeauticianSearchResultsVC : BAPBaseVC
+
+@property (strong, nonatomic) BAPBeauticiansArrayFeed* beauticiansArrayFeed;
 
 @end

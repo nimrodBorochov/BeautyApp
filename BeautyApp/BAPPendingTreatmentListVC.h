@@ -8,6 +8,14 @@
 
 #import "BAPBaseVC.h"
 
+@protocol PendingTreatmentListDelegate <NSObject>
+
+-(void)userDidSubmitReservation;
+
+@end
+
 @interface BAPPendingTreatmentListVC : BAPBaseVC
+
+@property (nonatomic, assign)id<PendingTreatmentListDelegate> delegate;
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "BAPBeauticianSearchVC.h"
+#import "BAPGetBeauticianSerchByPostSearchBeautician.h"
+#import "BAPBeauticiansArrayFeed.h"
+#import "BAPBeauticianSearchResultsVC.h"
 
 static NSString *const NAME_HEB = @"שם";
 static NSString *const ENTER_NAME_SEARCH_HEB = @"הכנס שם לחיפוש";
@@ -78,6 +81,8 @@ static NSInteger const TABLE_TREATMENT_HEIGHT = 360;
 
 @property (nonatomic, strong) NSArray* arrClassifications;
 @property (nonatomic, strong) NSArray* arrTreatments;
+
+@property (nonatomic, strong) BAPBeauticiansArrayFeed* beauticiansArrayFeed;
 
 @end
 
@@ -167,7 +172,67 @@ static NSInteger const TABLE_TREATMENT_HEIGHT = 360;
 
 -(void)vSearchTapped
 {
+    NSString* strNameSearch = @"";
+    NSString* strLocationSearch = @"";
+    NSString* strClassificationSearch = @"";
+    NSString* strTreatmentSearch = @"";
     
+    if (![self.lblNameSearch.text isEqualToString:NAME_HEB])
+    {
+        strNameSearch = self.lblNameSearch.text;
+    }
+    
+    if (![self.lblLocationSearch.text isEqualToString:LOCATIN_HEB])
+    {
+        strLocationSearch = self.lblLocationSearch.text;
+    }
+    
+    if (![self.lblClassificationSearch.text isEqualToString:CLASSIFICATION_HEB])
+    {
+        strClassificationSearch = self.lblClassificationSearch.text;
+    }
+    
+    if (![self.lblTreatmentSearch.text isEqualToString:TREATMENT_HEB])
+    {
+        strTreatmentSearch = self.lblTreatmentSearch.text;
+    }
+    
+    if ([self.lblNameSearch.text isEqualToString:NAME_HEB] &&  [self.lblLocationSearch.text isEqualToString:LOCATIN_HEB] &&  [self.lblClassificationSearch.text isEqualToString:CLASSIFICATION_HEB] &&  [self.lblTreatmentSearch.text isEqualToString:TREATMENT_HEB])
+    {
+        [self showAlartWithTitle:@"לא הבנתי מה לחפש בדיוק"];
+    }
+    else
+    {
+        BAPGetBeauticianSerchByPostSearchBeautician* getBeauticianSerchByPostSearchBeautician = [BAPGetBeauticianSerchByPostSearchBeautician new];
+        
+        self.beauticiansArrayFeed = [BAPBeauticiansArrayFeed new];
+        
+        [getBeauticianSerchByPostSearchBeautician getBeauticiansArrayBySearchName:strNameSearch
+                                                                         location:strLocationSearch
+                                                                             type:strClassificationSearch
+                                                                       treatments:strTreatmentSearch
+                                                                     successBlock:^(id jsonObject)
+        {
+            self.beauticiansArrayFeed = jsonObject;
+            
+            // Creating view controller to show
+            BAPBeauticianSearchResultsVC* beauticianSearchResultsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BAPBeauticianSearchResultsVC"];
+            
+            // Set view controller property
+            beauticianSearchResultsVC.beauticiansArrayFeed = self.beauticiansArrayFeed;
+            
+            // Push to MSLEmployeeProfileVC
+            [self.navigationController pushViewController:beauticianSearchResultsVC animated:YES];
+            
+            NSLog(@"jsonObject loading jason: %@", jsonObject);
+            
+                                                                     } failerBlock:^(NSError *error)
+        {
+             NSLog(@"error loading jason: %@", error);
+        }];
+    
+    
+    }
 }
 
 - (void)showPopupTableWithTitle:(NSString *)title tableHeigth:(NSInteger)tableHeigth

@@ -1,32 +1,37 @@
 //
-//  BAPGetBeauticiansLocationByPostCoordinates.m
+//  BAPRegisterServiceManager.m
 //  BeautyApp
 //
-//  Created by nimrod borochov on 8/12/14.
+//  Created by nimrod borochov on 9/18/14.
 //  Copyright (c) 2014 pictureit. All rights reserved.
 //
 
-#import "BAPGetBeauticiansLocationByPostCoordinates.h"
+#import "BAPRegisterServiceManager.h"
 #import "JSONModelLib.h"
-#import "BAPBeauticiansLocationFeed.h"
+#import "BAPRegisterFeed.h"
 
-static NSString* const POST_COORDINATES_METHOD_PATH = @"/postlatitudelongitude";
+static NSString* const POST_REGISTER_METHOD_PATH = @"/register";
 
-@implementation BAPGetBeauticiansLocationByPostCoordinates
+@implementation BAPRegisterServiceManager
 
-- (void)getBeauticiansLocationForLatitude:(double)latitude
-                                longitude:(double)longitude
-                             successBlock:(BAPSuccessBlock)successBlock
-                              failerBlock:(BAPFailerBlock)failerBlock
+- (void)GetUserAppIdForFirstName:(NSString *)firstName
+                        lastName:(NSString *)lastName
+                           eMail:(NSString *)eMail
+                         address:(NSString *)address
+                           phone:(NSString *)phone
+                    successBlock:(BAPSuccessBlock)successBlock
+                     failerBlock:(BAPFailerBlock)failerBlock
 {
-    NSString* strLatitude = [NSString stringWithFormat:@"%lf", latitude];
-    NSString* strLongitude = [NSString stringWithFormat:@"%lf", longitude];
-    
     NSDictionary *dic = @{
-                                @"latitude" : strLatitude ,
-                                @"longitude" : strLongitude,
-                                };
+                          @"first_name"  : firstName ,
+                          @"last_name"   : lastName,
+                          @"email"       : eMail,
+                          @"address"     : address,
+                          @"phone_number" : phone,
+                          };
+    
     NSError *error;
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
     
     NSString *jsonString = nil;
@@ -36,7 +41,7 @@ static NSString* const POST_COORDINATES_METHOD_PATH = @"/postlatitudelongitude";
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
-    NSString* urlString = [NSString stringWithFormat:@"%@%@%@", URL_HOST, BASE_PATH, POST_COORDINATES_METHOD_PATH];
+    NSString* urlString = [NSString stringWithFormat:@"%@%@%@", URL_HOST, BASE_PATH, POST_REGISTER_METHOD_PATH];
     
     // Set the post metode
     [JSONHTTPClient postJSONFromURLWithString:urlString bodyString:jsonString completion:^(id json, JSONModelError *err)
@@ -53,8 +58,7 @@ static NSString* const POST_COORDINATES_METHOD_PATH = @"/postlatitudelongitude";
          {
              NSError* error;
              
-             
-             BAPBeauticiansLocationFeed* jsonObject = [[BAPBeauticiansLocationFeed alloc]initWithDictionary:json error:&error];
+             BAPRegisterFeed* jsonObject = [[BAPRegisterFeed alloc]initWithDictionary:json error:&error];
              
              if (error)
              {

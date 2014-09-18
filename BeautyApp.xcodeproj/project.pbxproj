@@ -14,6 +14,7 @@
 		F32FB3DD19B5E4F000CDB254 /* BAPMessagesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DC19B5E4F000CDB254 /* BAPMessagesListVC.m */; };
 		F32FB3E119B5E67A00CDB254 /* BAPMessagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */; };
 		F32FB3E219B5E67A00CDB254 /* BAPMessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */; };
+		F3303A1B19C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.m in Sources */ = {isa = PBXBuildFile; fileRef = F3303A1A19C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.m */; };
 		F3416B2819BC71CA0024516F /* BAPPendingTreatmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3416B2619BC71CA0024516F /* BAPPendingTreatmentListCell.m */; };
 		F3416B2919BC71CA0024516F /* BAPPendingTreatmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3416B2719BC71CA0024516F /* BAPPendingTreatmentListCell.xib */; };
 		F3416B2C19BC90E90024516F /* BAPPendingTreatmentListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3416B2B19BC90E90024516F /* BAPPendingTreatmentListVC.m */; };
@@ -37,8 +38,15 @@
 		F3AA055F198E28B200079699 /* BeautyAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA055E198E28B200079699 /* BeautyAppTests.m */; };
 		F3AA056A198E295300079699 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0568198E295300079699 /* CoreLocation.framework */; };
 		F3AA056B198E295300079699 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AA0569198E295300079699 /* MapKit.framework */; };
-		F3AA171619AF6AFE00577310 /* BAPVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */; };
+		F3AA171619AF6AFE00577310 /* BAPSecondRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA171519AF6AFE00577310 /* BAPSecondRegistrationVC.m */; };
 		F3B11A9B19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B11A9A19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m */; };
+		F3B4B3C719C85F040040B36C /* BAPValidateAddressFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B4B3C619C85F040040B36C /* BAPValidateAddressFeed.m */; };
+		F3B4B3CA19C860420040B36C /* BAPGetValidateAddressForAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B4B3C919C860420040B36C /* BAPGetValidateAddressForAddress.m */; };
+		F3B5169919C95D17001FB369 /* BAPAppData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B5169819C95D17001FB369 /* BAPAppData.m */; };
+		F3BEDD0C19CAAD5700542D8F /* BAPRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BEDD0B19CAAD5700542D8F /* BAPRegisterModel.m */; };
+		F3BEDD0F19CAAE2800542D8F /* BAPRegisterFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BEDD0E19CAAE2800542D8F /* BAPRegisterFeed.m */; };
+		F3BEDD1219CAB12000542D8F /* BAPRegisterServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BEDD1119CAB12000542D8F /* BAPRegisterServiceManager.m */; };
+		F3BEDD1519CAE73400542D8F /* BAPVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BEDD1419CAE73400542D8F /* BAPVerificationVC.m */; };
 		F3C7F12E19BD8D65005E1C02 /* BAPPendingTreatmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F12D19BD8D65005E1C02 /* BAPPendingTreatmentVC.m */; };
 		F3C7F13119BDBB56005E1C02 /* BAPGroupPeopleAmountV.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C7F13019BDBB56005E1C02 /* BAPGroupPeopleAmountV.m */; };
 		F3C7F13319BDBB94005E1C02 /* BAPGroupPeopleAmountV.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C7F13219BDBB94005E1C02 /* BAPGroupPeopleAmountV.xib */; };
@@ -109,6 +117,8 @@
 		F32FB3DE19B5E67A00CDB254 /* BAPMessagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPMessagesCell.h; sourceTree = "<group>"; };
 		F32FB3DF19B5E67A00CDB254 /* BAPMessagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPMessagesCell.m; sourceTree = "<group>"; };
 		F32FB3E019B5E67A00CDB254 /* BAPMessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAPMessagesCell.xib; sourceTree = "<group>"; };
+		F3303A1919C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetBeauticianSerchByPostSearchBeautician.h; path = Server/BAPGetBeauticianSerchByPostSearchBeautician.h; sourceTree = "<group>"; };
+		F3303A1A19C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPGetBeauticianSerchByPostSearchBeautician.m; path = Server/BAPGetBeauticianSerchByPostSearchBeautician.m; sourceTree = "<group>"; };
 		F3416B2519BC71CA0024516F /* BAPPendingTreatmentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPPendingTreatmentListCell.h; sourceTree = "<group>"; };
 		F3416B2619BC71CA0024516F /* BAPPendingTreatmentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPPendingTreatmentListCell.m; sourceTree = "<group>"; };
 		F3416B2719BC71CA0024516F /* BAPPendingTreatmentListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAPPendingTreatmentListCell.xib; sourceTree = "<group>"; };
@@ -144,10 +154,24 @@
 		F3AA055E198E28B200079699 /* BeautyAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyAppTests.m; sourceTree = "<group>"; };
 		F3AA0568198E295300079699 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F3AA0569198E295300079699 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPVerificationVC.h; sourceTree = "<group>"; };
-		F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPVerificationVC.m; sourceTree = "<group>"; };
+		F3AA171419AF6AFE00577310 /* BAPSecondRegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPSecondRegistrationVC.h; sourceTree = "<group>"; };
+		F3AA171519AF6AFE00577310 /* BAPSecondRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPSecondRegistrationVC.m; sourceTree = "<group>"; };
 		F3B11A9919B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetBeauticansArrayForPostBeauticansIdsArray.h; path = Server/BAPGetBeauticansArrayForPostBeauticansIdsArray.h; sourceTree = "<group>"; };
 		F3B11A9A19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPGetBeauticansArrayForPostBeauticansIdsArray.m; path = Server/BAPGetBeauticansArrayForPostBeauticansIdsArray.m; sourceTree = "<group>"; };
+		F3B4B3C519C85F040040B36C /* BAPValidateAddressFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPValidateAddressFeed.h; path = "Model/JSON Model/ValidateAddress/BAPValidateAddressFeed.h"; sourceTree = "<group>"; };
+		F3B4B3C619C85F040040B36C /* BAPValidateAddressFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPValidateAddressFeed.m; path = "Model/JSON Model/ValidateAddress/BAPValidateAddressFeed.m"; sourceTree = "<group>"; };
+		F3B4B3C819C860420040B36C /* BAPGetValidateAddressForAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPGetValidateAddressForAddress.h; path = Server/BAPGetValidateAddressForAddress.h; sourceTree = "<group>"; };
+		F3B4B3C919C860420040B36C /* BAPGetValidateAddressForAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPGetValidateAddressForAddress.m; path = Server/BAPGetValidateAddressForAddress.m; sourceTree = "<group>"; };
+		F3B5169719C95D17001FB369 /* BAPAppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPAppData.h; sourceTree = "<group>"; };
+		F3B5169819C95D17001FB369 /* BAPAppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPAppData.m; sourceTree = "<group>"; };
+		F3BEDD0A19CAAD5700542D8F /* BAPRegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPRegisterModel.h; path = "Model/JSON Model/Registration/BAPRegisterModel.h"; sourceTree = "<group>"; };
+		F3BEDD0B19CAAD5700542D8F /* BAPRegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPRegisterModel.m; path = "Model/JSON Model/Registration/BAPRegisterModel.m"; sourceTree = "<group>"; };
+		F3BEDD0D19CAAE2800542D8F /* BAPRegisterFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPRegisterFeed.h; path = "Model/JSON Model/Registration/BAPRegisterFeed.h"; sourceTree = "<group>"; };
+		F3BEDD0E19CAAE2800542D8F /* BAPRegisterFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPRegisterFeed.m; path = "Model/JSON Model/Registration/BAPRegisterFeed.m"; sourceTree = "<group>"; };
+		F3BEDD1019CAB12000542D8F /* BAPRegisterServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAPRegisterServiceManager.h; path = Server/BAPRegisterServiceManager.h; sourceTree = "<group>"; };
+		F3BEDD1119CAB12000542D8F /* BAPRegisterServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAPRegisterServiceManager.m; path = Server/BAPRegisterServiceManager.m; sourceTree = "<group>"; };
+		F3BEDD1319CAE73400542D8F /* BAPVerificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPVerificationVC.h; sourceTree = "<group>"; };
+		F3BEDD1419CAE73400542D8F /* BAPVerificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPVerificationVC.m; sourceTree = "<group>"; };
 		F3C7F12C19BD8D65005E1C02 /* BAPPendingTreatmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPPendingTreatmentVC.h; sourceTree = "<group>"; };
 		F3C7F12D19BD8D65005E1C02 /* BAPPendingTreatmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPPendingTreatmentVC.m; sourceTree = "<group>"; };
 		F3C7F12F19BDBB56005E1C02 /* BAPGroupPeopleAmountV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPGroupPeopleAmountV.h; sourceTree = "<group>"; };
@@ -269,12 +293,18 @@
 			isa = PBXGroup;
 			children = (
 				F39BC1AF199A1E2F00C94C58 /* Base */,
+				F3BEDD1019CAB12000542D8F /* BAPRegisterServiceManager.h */,
+				F3BEDD1119CAB12000542D8F /* BAPRegisterServiceManager.m */,
+				F3B4B3C819C860420040B36C /* BAPGetValidateAddressForAddress.h */,
+				F3B4B3C919C860420040B36C /* BAPGetValidateAddressForAddress.m */,
 				F39BC1B3199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.h */,
 				F39BC1B4199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m */,
 				F3B11A9919B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.h */,
 				F3B11A9A19B32EE500D10E43 /* BAPGetBeauticansArrayForPostBeauticansIdsArray.m */,
 				F318611519C16E15001C8122 /* BAPGetOrderIdByPostReservation.h */,
 				F318611619C16E15001C8122 /* BAPGetOrderIdByPostReservation.m */,
+				F3303A1919C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.h */,
+				F3303A1A19C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.m */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -358,6 +388,8 @@
 				F3AA0542198E28B200079699 /* InfoPlist.strings */,
 				F3AA0545198E28B200079699 /* main.m */,
 				F3AA0547198E28B200079699 /* BeautyApp-Prefix.pch */,
+				F3B5169719C95D17001FB369 /* BAPAppData.h */,
+				F3B5169819C95D17001FB369 /* BAPAppData.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -408,8 +440,8 @@
 				F3D83D09198E4910007BAC70 /* BAPWalkthroughVC.m */,
 				F31535E619ADB66600477BD5 /* BAPRegistrationVC.h */,
 				F31535E719ADB66600477BD5 /* BAPRegistrationVC.m */,
-				F3AA171419AF6AFE00577310 /* BAPVerificationVC.h */,
-				F3AA171519AF6AFE00577310 /* BAPVerificationVC.m */,
+				F3AA171419AF6AFE00577310 /* BAPSecondRegistrationVC.h */,
+				F3AA171519AF6AFE00577310 /* BAPSecondRegistrationVC.m */,
 				F32FB3DB19B5E4F000CDB254 /* BAPMessagesListVC.h */,
 				F32FB3DC19B5E4F000CDB254 /* BAPMessagesListVC.m */,
 				F3EA726D19B8814000016E83 /* BAPMessagesVC.h */,
@@ -418,6 +450,8 @@
 				F3416B2B19BC90E90024516F /* BAPPendingTreatmentListVC.m */,
 				F3C7F12C19BD8D65005E1C02 /* BAPPendingTreatmentVC.h */,
 				F3C7F12D19BD8D65005E1C02 /* BAPPendingTreatmentVC.m */,
+				F3BEDD1319CAE73400542D8F /* BAPVerificationVC.h */,
+				F3BEDD1419CAE73400542D8F /* BAPVerificationVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -446,6 +480,8 @@
 		F3AA056F198E456500079699 /* JSON Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3B5169A19C9B152001FB369 /* Registration */,
+				F3B4B3C419C85E640040B36C /* ValidateAddress */,
 				F3D4CDB719B700E500E5787D /* OrderNotification */,
 				F3998BE419A215F600FDFD8D /* OrderTreatment */,
 				F39BC1B6199A247E00C94C58 /* BeauticiansLocation */,
@@ -469,6 +505,26 @@
 				F3F2E17419A1E5DE00B8106F /* BAPBeauticiansArrayFeed.m */,
 			);
 			name = Beautician;
+			sourceTree = "<group>";
+		};
+		F3B4B3C419C85E640040B36C /* ValidateAddress */ = {
+			isa = PBXGroup;
+			children = (
+				F3B4B3C519C85F040040B36C /* BAPValidateAddressFeed.h */,
+				F3B4B3C619C85F040040B36C /* BAPValidateAddressFeed.m */,
+			);
+			name = ValidateAddress;
+			sourceTree = "<group>";
+		};
+		F3B5169A19C9B152001FB369 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				F3BEDD0A19CAAD5700542D8F /* BAPRegisterModel.h */,
+				F3BEDD0B19CAAD5700542D8F /* BAPRegisterModel.m */,
+				F3BEDD0D19CAAE2800542D8F /* BAPRegisterFeed.h */,
+				F3BEDD0E19CAAE2800542D8F /* BAPRegisterFeed.m */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 		F3D4CDB719B700E500E5787D /* OrderNotification */ = {
@@ -691,10 +747,12 @@
 				F3D83D0C198E4910007BAC70 /* BAPMainVC.m in Sources */,
 				F39BC1B5199A239500C94C58 /* BAPGetBeauticiansLocationByPostCoordinates.m in Sources */,
 				F3D83CEB198E48A1007BAC70 /* BAPMenuV.m in Sources */,
-				F3AA171619AF6AFE00577310 /* BAPVerificationVC.m in Sources */,
+				F3AA171619AF6AFE00577310 /* BAPSecondRegistrationVC.m in Sources */,
 				F3D83CCD198E487F007BAC70 /* BAPTreatmentHistoryCell.m in Sources */,
+				F3B4B3CA19C860420040B36C /* BAPGetValidateAddressForAddress.m in Sources */,
 				F3D83CF2198E48F7007BAC70 /* BAPBaseReservationVC.m in Sources */,
 				F39BC1B9199A250B00C94C58 /* BAPBeauticiansLocationFeed.m in Sources */,
+				F3BEDD0C19CAAD5700542D8F /* BAPRegisterModel.m in Sources */,
 				F3D83CA0198E4781007BAC70 /* BAPBeauticianAdressModel.m in Sources */,
 				F31535E819ADB66600477BD5 /* BAPRegistrationVC.m in Sources */,
 				F3D83CE5198E48A1007BAC70 /* BAPLocationSelectionV.m in Sources */,
@@ -714,6 +772,7 @@
 				F3EA726F19B8814000016E83 /* BAPMessagesVC.m in Sources */,
 				F3AA054A198E28B200079699 /* BAPAppDelegate.m in Sources */,
 				F39BC1B2199A1E8700C94C58 /* BAPBaseServerManager.m in Sources */,
+				F3B4B3C719C85F040040B36C /* BAPValidateAddressFeed.m in Sources */,
 				F3D83D0D198E4910007BAC70 /* BAPBeauticianVC.m in Sources */,
 				F3D83D12198E4910007BAC70 /* BAPRegulationsVC.m in Sources */,
 				F318611719C16E15001C8122 /* BAPGetOrderIdByPostReservation.m in Sources */,
@@ -721,9 +780,12 @@
 				F3D83D0F198E4910007BAC70 /* BAPBeauticianSearchResultsVC.m in Sources */,
 				F3D83D0E198E4910007BAC70 /* BAPBeauticianSearchVC.m in Sources */,
 				F3998BEA19A2190600FDFD8D /* BAPOrderTreatmenFeed.m in Sources */,
+				F3B5169919C95D17001FB369 /* BAPAppData.m in Sources */,
 				F3D83CF3198E48F7007BAC70 /* BAPBaseVC.m in Sources */,
 				F3D83CE9198E48A1007BAC70 /* BAPDateSelectionV.m in Sources */,
+				F3BEDD1519CAE73400542D8F /* BAPVerificationVC.m in Sources */,
 				F3D83D0B198E4910007BAC70 /* BAPReservationTreatmentsListVC.m in Sources */,
+				F3BEDD0F19CAAE2800542D8F /* BAPRegisterFeed.m in Sources */,
 				F3416B2819BC71CA0024516F /* BAPPendingTreatmentListCell.m in Sources */,
 				F3D83CE3198E48A1007BAC70 /* BAPWhenSelectionV.m in Sources */,
 				F32FB3DA19B5D6BF00CDB254 /* UIBarButtonItem+Badge.m in Sources */,
@@ -731,7 +793,9 @@
 				F3D83CA2198E4781007BAC70 /* BAPBeauticianModel.m in Sources */,
 				F3D83D11198E4910007BAC70 /* BAPUserTreatmentHistoryVC.m in Sources */,
 				F3D83D0A198E4910007BAC70 /* BAPReservationVC.m in Sources */,
+				F3303A1B19C5B2450006E6CD /* BAPGetBeauticianSerchByPostSearchBeautician.m in Sources */,
 				F3D83D13198E4910007BAC70 /* BAPWalkthroughContentVC.m in Sources */,
+				F3BEDD1219CAB12000542D8F /* BAPRegisterServiceManager.m in Sources */,
 				F32FB3E119B5E67A00CDB254 /* BAPMessagesCell.m in Sources */,
 				F39BC1BC199A254E00C94C58 /* BAPBeauticianLocationModel.m in Sources */,
 				F3C7F12E19BD8D65005E1C02 /* BAPPendingTreatmentVC.m in Sources */,
